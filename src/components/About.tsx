@@ -56,7 +56,6 @@ export default function About() {
   const impact = [
     { number: "2,500+", label: "Investigadores Participantes", description: "A lo largo de 10 ediciones" },
     { number: "150+", label: "Proyectos Presentados", description: "Investigaciones de alto impacto" },
-    { number: "25", label: "Países Representados", description: "Alcance internacional" },
     { number: "50+", label: "Instituciones Aliadas", description: "Red de colaboración" },
   ]
 
@@ -92,9 +91,9 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "linear" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Acerca del Evento</h2>
           <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
@@ -115,22 +114,17 @@ export default function About() {
             </h3>
             <div className="space-y-3 sm:space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
-                El Seminario de Investigación SEIIS dio inicio en el año 2014, con su primera versión, organizada y
-                llevada a cabo en las instalaciones del Tecnológico de Antioquia.
+                La Facultad de Ingeniería del tecnológico de Antioquia, con el apoyo de otras IES, organiza el evento académico SEIIIS, con el propósito de generar un espacio para la disertación y socialización de tópicos como la Inteligencia Artificial, la Inteligencia de Negocios, el Big Data, la Ciberseguridad, la Seguridad de la información, la ingeniería de Software, entre otros
               </p>
               <p>
-                En su segunda Edición, en el año 2016, nuevamente fueron las instalaciones del Tecnológico de Antioquia
-                las que permitieron el desarrollo de las actividades de este evento que reúne las experiencias,
-                conocimientos y buenas prácticas.
+                En esta edición contaremos con conferencias, ponencias, talleres, y panel con expertos. Estas actividades serán servidas por expertos académicos de las universidades, y empresas que participan en la organización del evento. 
               </p>
               <p>
-                A lo largo de estos 10 años, SEIIS ha evolucionado para convertirse en una plataforma integral que no
-                solo presenta investigaciones, sino que también fomenta la colaboración, la innovación y el desarrollo
-                de soluciones para los desafíos contemporáneos.
+                Serán dos días de actividades que enriquecerán de conocimiento, experiencias, y buenas prácticas a todas las comunidades académicas que nos acompañarán de forma presencial y virtual. 
               </p>
             </div>
 
-            <motion.div
+            {/* <motion.div
               className="mt-6 sm:mt-8 p-4 sm:p-6 bg-green-50 rounded-xl border border-green-200"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2, ease: "linear" }}
@@ -143,7 +137,7 @@ export default function About() {
                 SEIIS ha sido reconocido por organizaciones internacionales como uno de los eventos académicos más
                 importantes de Latinoamérica en el área de investigación e innovación.
               </p>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           <motion.div
@@ -259,7 +253,7 @@ export default function About() {
             )}
 
             {activeTab === "impacto" && (
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 {impact.map((item, index) => (
                   <motion.div
                     key={item.label}

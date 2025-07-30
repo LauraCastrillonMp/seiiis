@@ -69,7 +69,7 @@ export default function Timeline() {
   const progressPercentage = (currentIndex / (years.length - 1)) * 100
 
   return (
-    <section className="min-h-screen bg-slate-900 text-white">
+    <section className="min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <motion.div
           className="text-center mb-12 sm:mb-16"
@@ -77,20 +77,20 @@ export default function Timeline() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "linear" }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Historia del SEIIS</h2>
-          <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-slate-900">Historia del SEIIS</h2>
+          <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto" />
+          <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600">
             Un recorrido por una década de innovación, investigación y excelencia académica
           </p>
         </motion.div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
+        <div className="border border-slate-600 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row justify-between items-center mb-8 sm:mb-12 gap-4">
             <div className="flex items-center space-x-3 sm:space-x-4">
               <motion.button
                 onClick={() => changeYear(-1)}
                 disabled={currentIndex <= 0}
-                className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-600 flex items-center justify-center transition-all ${
+                className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-400 flex items-center justify-center transition-all ${
                   currentIndex <= 0 ? "opacity-40 cursor-not-allowed" : "hover:border-green-500 hover:bg-green-500/10"
                 }`}
                 whileHover={{ scale: currentIndex > 0 ? 1.05 : 1 }}
@@ -101,7 +101,7 @@ export default function Timeline() {
               <motion.button
                 onClick={() => changeYear(1)}
                 disabled={currentIndex >= years.length - 1}
-                className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-600 flex items-center justify-center transition-all ${
+                className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-400 flex items-center justify-center transition-all ${
                   currentIndex >= years.length - 1
                     ? "opacity-40 cursor-not-allowed"
                     : "hover:border-green-500 hover:bg-green-500/10"
@@ -114,22 +114,22 @@ export default function Timeline() {
             </div>
 
             <div className="text-center lg:text-right">
-              <div className="text-xs sm:text-sm text-slate-400 mb-1">Navega por nuestra historia</div>
+              {/* <div className="text-xs sm:text-sm text-slate-400 mb-1">Navega por nuestra historia</div> */}
               <div className="text-green-500 font-semibold bg-green-500/10 px-2 sm:px-3 py-1 rounded-lg text-sm">
                 {currentIndex + 1} de {years.length}
               </div>
             </div>
           </div>
 
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="relative h-24 sm:h-32 flex items-center justify-center">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="relative h-24 flex items-center justify-center">
               <AnimatePresence custom={direction} initial={false} mode="wait">
                 <YearDisplay key={selectedYear} year={selectedYear} direction={direction} />
               </AnimatePresence>
             </div>
           </div>
 
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-6 sm:mb-12">
             <div className="relative h-32 sm:h-40 flex items-start justify-center">
               <AnimatePresence custom={direction} initial={false} mode="wait">
                 <ContentDisplay key={selectedYear} data={timelineData[selectedYear]} direction={direction} />
@@ -138,15 +138,15 @@ export default function Timeline() {
           </div>
 
           <div className="space-y-3 sm:space-y-4">
-            <div className="flex justify-between items-center">
+            {/* <div className="flex justify-between items-center">
               <span className="text-base sm:text-lg font-semibold text-white">Línea de Tiempo SEIIS</span>
               <span className="text-slate-400 text-sm">
                 {minYear} - {maxYear}
               </span>
-            </div>
+            </div> */}
 
             <div className="relative">
-              <div className="w-full h-1 bg-slate-600 rounded-full">
+              <div className="w-full h-1 bg-slate-300 rounded-full">
                 <motion.div
                   className="h-full bg-green-500 rounded-full"
                   animate={{ width: `${progressPercentage}%` }}
@@ -165,7 +165,7 @@ export default function Timeline() {
                     className={`w-4 sm:w-5 h-4 sm:h-5 rounded-full border-2 transition-all ${
                       index <= currentIndex
                         ? "bg-green-500 border-green-500"
-                        : "bg-slate-600 border-slate-600 hover:border-green-500"
+                        : "bg-slate-300 border-slate-300 hover:border-slate-500"
                     }`}
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
@@ -174,7 +174,7 @@ export default function Timeline() {
               </div>
             </div>
 
-            <div className="flex justify-between text-xs sm:text-sm text-slate-400">
+            <div className="flex justify-between text-xs sm:text-sm text-slate-500">
               <span>{minYear}</span>
               <span>{maxYear}</span>
             </div>
@@ -209,7 +209,7 @@ const YearDisplay = forwardRef(function YearDisplay(
           ease: "linear",
         },
       }}
-      className="text-6xl sm:text-8xl lg:text-9xl font-bold text-slate-600 absolute"
+      className="text-6xl sm:text-8xl lg:text-9xl font-bold text-slate-300 absolute"
     >
       {year}
     </motion.div>
@@ -243,8 +243,8 @@ const ContentDisplay = forwardRef(function ContentDisplay(
       }}
       className="max-w-4xl mx-auto absolute px-4"
     >
-      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">{data.title}</h3>
-      <p className="text-base sm:text-lg text-slate-300 leading-relaxed">{data.description}</p>
+      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-500 mb-3 sm:mb-4">{data.title}</h3>
+      <p className="text-base sm:text-lg text-slate-400 leading-relaxed">{data.description}</p>
     </motion.div>
   )
 })

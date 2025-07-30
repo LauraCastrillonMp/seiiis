@@ -42,7 +42,7 @@ export default function App() {
   };
 
   return (
-    <main className="bg-white">
+    <main className="bg-white mt-12">
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       <div>
         <Suspense fallback={<div className="text-center">Cargando...</div>}>
