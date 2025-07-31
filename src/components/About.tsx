@@ -63,7 +63,7 @@ export default function About() {
     {
       name: "Dr. María González",
       role: "Universidad de Barcelona",
-      text: "SEIIS ha sido fundamental para establecer colaboraciones internacionales.",
+      text: "SEIIIS ha sido fundamental para establecer colaboraciones internacionales.",
       rating: 5,
     },
     {
@@ -75,7 +75,7 @@ export default function About() {
     {
       name: "Dra. Ana Rodríguez",
       role: "BioTech Innovations",
-      text: "SEIIS me ha permitido conectar con investigadores y encontrar oportunidades.",
+      text: "SEIIIS me ha permitido conectar con investigadores y encontrar oportunidades.",
       rating: 5,
     },
   ]
@@ -98,7 +98,7 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Acerca del Evento</h2>
           <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            El Seminario Internacional de Investigación e Innovación SEIIS es el evento académico más importante del
+            El Seminario Internacional de Investigación e Innovación SEIIIS es el evento académico más importante del
             año, reuniendo a los mejores investigadores y profesionales del sector.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function About() {
                 <h4 className="font-bold text-slate-900 text-sm sm:text-base">Reconocimiento Internacional</h4>
               </div>
               <p className="text-slate-700 text-xs sm:text-sm">
-                SEIIS ha sido reconocido por organizaciones internacionales como uno de los eventos académicos más
+                SEIIIS ha sido reconocido por organizaciones internacionales como uno de los eventos académicos más
                 importantes de Latinoamérica en el área de investigación e innovación.
               </p>
             </motion.div> */}

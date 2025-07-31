@@ -18,7 +18,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
     { id: "historia", label: "Historia" },
     { id: "programa", label: "Programa" },
     { id: "ponentes", label: "Ponentes" },
-    { id: "hackathon", label: "HackSEIIS" },
+    { id: "hackathon", label: "HackSEIIIS" },
     { id: "patrocinadores", label: "Patrocinadores" },
     { id: "registro", label: "Registro" },
   ]
@@ -37,7 +37,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               <Lightbulb className="w-6 sm:w-7 h-6 sm:h-7 text-black" />
             </div>
             <div className="text-white">
-              <div className="font-bold text-lg sm:text-xl">SEIIS</div>
+              <div className="font-bold text-lg sm:text-xl">SEIIIS</div>
               <div className="text-xs sm:text-sm text-gray-400 font-light">2024</div>
             </div>
           </motion.div>

@@ -161,7 +161,7 @@ export default function Program() {
         },
         {
           time: "13:30 - 15:00",
-          title: "Hackathon SEIIS - Presentación de Soluciones",
+          title: "Hackathon SEIIIS - Presentación de Soluciones",
           speaker: "Equipos Participantes",
           location: "Laboratorio de Innovación",
           type: "hackathon",
@@ -248,7 +248,7 @@ export default function Program() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Programación</h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Agenda completa del Seminario Internacional de Investigación e Innovación SEIIS 2024
+            Agenda completa del Seminario Internacional de Investigación e Innovación SEIIIS 2024
           </p>
         </motion.div>
 

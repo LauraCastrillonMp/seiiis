@@ -211,7 +211,7 @@ export default function Speakers() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ponentes Destacados</h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Conoce a los expertos internacionales que compartirán sus conocimientos en SEIIS 2024
+            Conoce a los expertos internacionales que compartirán sus conocimientos en SEIIIS 2024
           </p>
         </motion.div>
 
@@ -493,7 +493,7 @@ export default function Speakers() {
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2 flex items-center">
                       <Users className="w-5 h-5 mr-2 text-green-500" />
-                      Sesión en SEIIS
+                      Sesión en SEIIIS
                     </h4>
                     <p className="text-slate-600">{selectedSpeaker.session}</p>
                   </div>

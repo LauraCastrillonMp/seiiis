@@ -65,7 +65,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              SEIIS
+              SEIIIS
               <motion.span
                 className="block text-green-400"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -180,7 +180,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
-              Momentos SEIIS
+              Momentos SEIIIS
             </h2>
             <div className="w-24 h-1 bg-green-500 mx-auto mb-6" />
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -240,7 +240,7 @@ export default function Hero() {
                 <span className="block text-green-500">Innovación</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Desde 2014, SEIIS ha sido el punto de encuentro más importante
+                Desde 2014, SEIIIS ha sido el punto de encuentro más importante
                 para investigadores, académicos y profesionales en Colombia y
                 Latinoamérica.
               </p>
@@ -272,8 +272,8 @@ export default function Hero() {
             >
               <div className="aspect-square bg-black rounded-none overflow-hidden">
                 <img
-                  src="/placeholder.svg?height=600&width=600&text=SEIIS+2025"
-                  alt="SEIIS Event"
+                  src="/placeholder.svg?height=600&width=600&text=SEIIIS+2025"
+                  alt="SEIIIS Event"
                   className="w-full h-full object-cover"
                 />
               </div>

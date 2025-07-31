@@ -7,7 +7,7 @@ export default function Sponsors() {
   const sponsorTiers = [
     {
       title: "Patrocinadores Principales",
-      description: "Nuestros socios estratégicos que hacen posible SEIIS",
+      description: "Nuestros socios estratégicos que hacen posible SEIIIS",
       icon: Award,
       color: "green",
       sponsors: [
@@ -109,7 +109,7 @@ export default function Sponsors() {
     },
     {
       title: "Aliados Institucionales",
-      description: "Organizaciones que apoyan la misión de SEIIS",
+      description: "Organizaciones que apoyan la misión de SEIIIS",
       icon: Heart,
       color: "emerald", // Changed from "blue"
       sponsors: [
@@ -208,7 +208,7 @@ export default function Sponsors() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nuestros Patrocinadores</h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Gracias a nuestros patrocinadores y aliados estratégicos, SEIIS continúa siendo el evento de investigación e
+            Gracias a nuestros patrocinadores y aliados estratégicos, SEIIIS continúa siendo el evento de investigación e
             innovación más importante de la región.
           </p>
         </motion.div>

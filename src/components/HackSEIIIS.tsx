@@ -18,7 +18,7 @@ import {
 } from "lucide-react"
 import { useState, useEffect } from "react"
 
-export default function HackSEIIS() {
+export default function HackSEIIIS() {
   const [activeTab, setActiveTab] = useState("info")
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
   const [selectedPrize, setSelectedPrize] = useState<number | null>(null)
@@ -119,7 +119,7 @@ export default function HackSEIIS() {
     {
       place: "Mención Especial",
       prize: "$500,000 COP",
-      benefits: ["Reconocimiento en publicaciones SEIIS"],
+      benefits: ["Reconocimiento en publicaciones SEIIIS"],
       color: "from-lime-400 to-lime-600",
       icon: "⭐",
     },
@@ -190,7 +190,7 @@ export default function HackSEIIS() {
     {
       question: "¿Quiénes pueden participar?",
       answer:
-        "Estudiantes universitarios, profesionales, investigadores y entusiastas de la tecnología. Al menos un miembro del equipo debe estar inscrito en SEIIS 2024.",
+        "Estudiantes universitarios, profesionales, investigadores y entusiastas de la tecnología. Al menos un miembro del equipo debe estar inscrito en SEIIIS 2024.",
     },
     {
       question: "¿Necesito tener experiencia en programación?",
@@ -307,7 +307,7 @@ export default function HackSEIIS() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            Hack<span className="text-green-600">SEIIS</span> 2024
+            Hack<span className="text-green-600">SEIIIS</span> 2024
           </motion.h2>
           <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -503,10 +503,10 @@ export default function HackSEIIS() {
               <div className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Sobre HackSEIIS</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Sobre HackSEIIIS</h3>
                     <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-slate-600 leading-relaxed">
                       <p>
-                        HackSEIIS es el hackathon oficial del Seminario Internacional de Investigación e Innovación,
+                        HackSEIIIS es el hackathon oficial del Seminario Internacional de Investigación e Innovación,
                         donde equipos multidisciplinarios compiten para desarrollar soluciones tecnológicas innovadoras
                         en tan solo 36 horas.
                       </p>
@@ -709,7 +709,7 @@ export default function HackSEIIS() {
             {activeTab === "schedule" && (
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6 sm:mb-8 text-center">
-                  Cronograma Interactivo HackSEIIS 2024
+                  Cronograma Interactivo HackSEIIIS 2024
                 </h3>
                 <div className="max-w-3xl mx-auto">
                   <div className="relative">

@@ -19,7 +19,7 @@ export default function Footer() {
                 <Lightbulb className="w-7 h-7 text-black" />
               </div>
               <div>
-                <div className="font-bold text-2xl">SEIIS</div>
+                <div className="font-bold text-2xl">SEIIIS</div>
                 <div className="text-sm text-gray-400 font-light">2025 - 10ma Edición</div>
               </div>
             </div>
@@ -86,18 +86,18 @@ export default function Footer() {
                   <div>Medellín, Colombia</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-green-400" />
                 <span className="text-gray-300 text-sm">+57 (4) 444-5555</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-green-400" />
-                <span className="text-gray-300 text-sm">info@seiis.edu.co</span>
+                <span className="text-gray-300 text-sm">info@SEIIIS.edu.co</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Camera className="w-5 h-5 text-green-400" />
-                <span className="text-gray-300 text-sm">galeria@seiis.edu.co</span>
-              </div>
+                <span className="text-gray-300 text-sm">galeria@SEIIIS.edu.co</span>
+              </div> */}
             </div>
           </motion.div>
         </div>
@@ -109,7 +109,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.6, ease: "linear" }}
         >
           <div className="text-gray-400 text-sm text-center sm:text-left">
-            © 2025 SEIIS - Seminario Internacional de Investigación e Innovación. Todos los derechos reservados.
+            © 2025 SEIIIS - Seminario Internacional de Investigación e Innovación. Todos los derechos reservados.
           </div>
           {/* <div className="text-gray-400 text-sm text-center sm:text-right">
             Diseñado por <a href="#" className="text-green-400 hover:underline">Tu Empresa</a>

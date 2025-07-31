@@ -7,43 +7,43 @@ import { forwardRef, useState } from "react"
 const timelineData: Record<number, { title: string; description: string }> = {
   2014: {
     title: "Los Inicios",
-    description: "Primera edición del Seminario SEIIS en las instalaciones del Tecnológico de Antioquia.",
+    description: "Se realiza la primera edición del SEIIIS en el Tecnológico de Antioquia, con participación de ponentes de Medellín y otras ciudades del país. Las actividades giran en torno a la Ingeniería de Software, marcando el inicio de un evento que conecta la academia y el sector productivo.",
   },
   2016: {
     title: "Consolidación",
-    description: "Segunda edición que consolidó el evento como un espacio de encuentro para investigadores.",
+    description: "En su segunda edición, el seminario vuelve a realizarse en el TdeA, esta vez con el respaldo de universidades aliadas que se suman como coorganizadoras. Se abordan temáticas clave como Ingeniería de Software, Gestión del Conocimiento y Seguridad de la Información..",
   },
   2017: {
     title: "Expansión Nacional",
-    description: "Tercera edición con mayor participación nacional y primeros ponentes internacionales.",
+    description: "La tercera edición se lleva a cabo en conjunto entre la Universidad Católica Luis Amigó y el TdeA, ampliando los escenarios académicos. Se desarrollan conferencias y ponencias con un enfoque investigativo, fortaleciendo la colaboración interinstitucional.",
   },
   2018: {
     title: "Reconocimiento Internacional",
-    description: "Cuarta edición que logró reconocimiento internacional con participantes de varios países.",
+    description: "En la cuarta edición, el Politécnico Jaime Isaza Cadavid se suma como sede, junto al TdeA y Luis Amigó. El evento mantiene su enfoque en Ingeniería de Software, Seguridad de la Información y Gestión del Conocimiento, ampliando su alcance y participación.",
   },
   2019: {
     title: "Innovación Tecnológica",
-    description: "Quinta edición enfocada en tecnologías emergentes y transformación digital.",
+    description: "Quinta edición del SEIIIS, nuevamente con sedes en el Politécnico, TdeA y Luis Amigó. Se consolidan las líneas temáticas abordadas en años anteriores y se fortalece la asistencia de investigadores nacionales e internacionales.",
   },
   2020: {
     title: "Adaptación Virtual",
-    description: "Sexta edición adaptada al formato virtual debido a la pandemia, alcanzando audiencias globales.",
+    description: "Sexta edición y primera realizada de forma virtual, adaptándose al contexto global. Se enfocan en la Industria 4.0, con actividades sobre Big Data, IoT, Inteligencia Artificial, Seguridad de la Información y Gestión del Conocimiento, permitiendo llegar a nuevas audiencias.",
   },
   2021: {
     title: "Formato Híbrido",
-    description: "Séptima edición combinando modalidades presencial y virtual.",
+    description: "Séptima edición virtual, consolidando el formato online como una oportunidad para ampliar la participación de estudiantes, docentes e investigadores. Se profundiza en temáticas de la Industria 4.0, con resultados enriquecedores en cobertura y calidad.",
   },
   2022: {
     title: "Sostenibilidad e Impacto",
-    description: "Octava edición centrada en investigación sostenible y el impacto social de la innovación.",
+    description: "La edición 2022, tuvo como escenarios, los auditorios del Politécnico Jaime Isaza Cadavid, y del Tecnológico de Antioquia. Esta vez se realizó un evento en modalidad hibrida, permitiendo a través de la transmisión de las conferencias, la participación como asistentes virtuales de un mayor número de público. Los talleres se realizaron de forma presencial, con apoyo mediado por TIC, para permitir la conexión sincrónica de muchos interesados en participar. ",
   },
   2023: {
     title: "Inteligencia Artificial",
-    description: "Novena edición explorando el potencial de la IA en la investigación y la innovación académica.",
+    description: "Novena edición con apoyo de 10 universidades; modalidad híbrida y contenidos relacionados con Big Data, IA, IoT y más.",
   },
   2024: {
     title: "Década de Excelencia",
-    description: "Décima edición celebrando una década de excelencia académica y proyectando el futuro.",
+    description: "Décima edición con amplia colaboración interinstitucional, reforzando temas de Industria 4.0 y consolidando el impacto internacional del evento.",
   },
 }
 
@@ -77,7 +77,7 @@ export default function Timeline() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "linear" }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-slate-900">Historia del SEIIS</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-slate-900">Historia del SEIIIS</h2>
           <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto" />
           <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600">
             Un recorrido por una década de innovación, investigación y excelencia académica
@@ -121,7 +121,7 @@ export default function Timeline() {
             </div>
           </div>
 
-          <div className="text-center mb-6 sm:mb-8">
+          <div className="text-center sm:mb-8 mb-4">
             <div className="relative h-24 flex items-center justify-center">
               <AnimatePresence custom={direction} initial={false} mode="wait">
                 <YearDisplay key={selectedYear} year={selectedYear} direction={direction} />
@@ -129,8 +129,8 @@ export default function Timeline() {
             </div>
           </div>
 
-          <div className="text-center mb-6 sm:mb-12">
-            <div className="relative h-32 sm:h-40 flex items-start justify-center">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="relative h-36 sm:h-40 flex items-start justify-center">
               <AnimatePresence custom={direction} initial={false} mode="wait">
                 <ContentDisplay key={selectedYear} data={timelineData[selectedYear]} direction={direction} />
               </AnimatePresence>
@@ -139,7 +139,7 @@ export default function Timeline() {
 
           <div className="space-y-3 sm:space-y-4">
             {/* <div className="flex justify-between items-center">
-              <span className="text-base sm:text-lg font-semibold text-white">Línea de Tiempo SEIIS</span>
+              <span className="text-base sm:text-lg font-semibold text-white">Línea de Tiempo SEIIIS</span>
               <span className="text-slate-400 text-sm">
                 {minYear} - {maxYear}
               </span>
@@ -243,7 +243,7 @@ const ContentDisplay = forwardRef(function ContentDisplay(
       }}
       className="max-w-4xl mx-auto absolute px-4"
     >
-      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-500 mb-3 sm:mb-4">{data.title}</h3>
+      {/* <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-500 mb-3 sm:mb-4">{data.title}</h3> */}
       <p className="text-base sm:text-lg text-slate-400 leading-relaxed">{data.description}</p>
     </motion.div>
   )

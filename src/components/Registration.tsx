@@ -110,14 +110,14 @@ export default function Registration() {
     {
       name: "Ana María Pérez",
       role: "Estudiante de Ingeniería - Universidad Nacional",
-      text: "SEIIS cambió mi perspectiva sobre la investigación. Las conferencias fueron increíbles y pude conectar con investigadores de todo el mundo. Definitivamente vale la pena la inversión.",
+      text: "SEIIIS cambió mi perspectiva sobre la investigación. Las conferencias fueron increíbles y pude conectar con investigadores de todo el mundo. Definitivamente vale la pena la inversión.",
       rating: 5,
       plan: "Estudiante",
     },
     {
       name: "Dr. Carlos Rodríguez",
       role: "Investigador Senior - Universidad de Antioquia",
-      text: "Como investigador, SEIIS me ha permitido establecer colaboraciones internacionales valiosas. El plan profesional incluye beneficios que realmente marcan la diferencia.",
+      text: "Como investigador, SEIIIS me ha permitido establecer colaboraciones internacionales valiosas. El plan profesional incluye beneficios que realmente marcan la diferencia.",
       rating: 5,
       plan: "Profesional",
     },
@@ -174,7 +174,7 @@ export default function Registration() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Registro</h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Elige el plan que mejor se adapte a tus necesidades y asegura tu lugar en SEIIS 2024
+            Elige el plan que mejor se adapte a tus necesidades y asegura tu lugar en SEIIIS 2024
           </p>
         </motion.div>
 
@@ -561,7 +561,7 @@ export default function Registration() {
                   </svg>
                 </div>
                 <div className="font-medium">Email</div>
-                <div className="text-slate-300 text-sm">registro@seiis.edu.co</div>
+                <div className="text-slate-300 text-sm">registro@SEIIIS.edu.co</div>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -594,7 +594,7 @@ export default function Registration() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="mailto:registro@seiis.edu.co"
+                href="mailto:registro@SEIIIS.edu.co"
                 className="bg-green-500 hover:bg-green-600 text-slate-900 font-medium py-3 px-6 rounded-xl transition-colors inline-flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -1,20 +1,29 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState, Suspense } from "react";
 import "./styles/globals.css";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-
-const Timeline = lazy(() => import("./components/Timeline"));
-const About = lazy(() => import("./components/About"));
-const Program = lazy(() => import("./components/Program"));
-const Speakers = lazy(() => import("./components/Speakers"));
-const Registration = lazy(() => import("./components/Registration"));
-const Sponsors = lazy(() => import("./components/Sponsors"));
-const HackSEIIS = lazy(() => import("./components/HackSEIIS"));
-const PhotoGallery = lazy(() => import("./components/PhotoGallery"));
+import LoadingPage from "./components/LoadingPage";
+import About from "./components/About";
+import Timeline from "./components/Timeline";
+import Program from "./components/Program";
+import Speakers from "./components/Speakers"; 
+import HackSEIIIS from "./components/HackSEIIIS";
+import PhotoGallery from "./components/PhotoGallery";
+import Sponsors from "./components/Sponsors";
+import Registration from "./components/Registration";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("inicio");
+  const [isLoading, setIsLoading] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+    setTimeout(() => {
+      setShowContent(true)
+    }, 100)
+  }
 
   const renderSection = () => {
     switch (activeSection) {
@@ -29,7 +38,7 @@ export default function App() {
       case "ponentes":
         return <Speakers />;
       case "hackathon":
-        return <HackSEIIS />;
+        return <HackSEIIIS />;
       case "galeria":
         return <PhotoGallery />;
       case "patrocinadores":
@@ -41,15 +50,26 @@ export default function App() {
     }
   };
 
+  if (isLoading) {
+    return <LoadingPage onLoadingComplete={handleLoadingComplete} />
+  }
+
   return (
-    <main className="bg-white mt-12">
-      <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-      <div>
-        <Suspense fallback={<div className="text-center">Cargando...</div>}>
+    <main className="min-h-screen bg-white">
+      {/* {showContent && (
+        <>
+          <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
+          <div className="pt-16 sm:pt-20">{renderSection()}</div>
+          <Footer />
+        </>
+      )} */}
+      <Suspense fallback={<div className="flex items-center justify-center h-screen"><LoadingPage onLoadingComplete={handleLoadingComplete} /></div>}>
+        <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
+        <div className="pt-16 sm:pt-20">
           {renderSection()}
-        </Suspense>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </Suspense>
     </main>
   );
 } 
