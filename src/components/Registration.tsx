@@ -162,16 +162,16 @@ export default function Registration() {
   const getColorClasses = (color: string, popular: boolean) => {
     const colors = {
       green: {
-        bg: popular ? "bg-green-500" : "bg-green-50",
+        bg: popular ? "bg-[#C1FF72]" : "bg-green-50",
         text: popular ? "text-white" : "text-green-600",
         border: "border-green-200",
-        button: "bg-green-500 hover:bg-green-600 text-white",
+        button: "bg-[#C1FF72] hover:bg-green-600 text-white",
       },
       yellow: {
-        bg: popular ? "bg-green-500" : "bg-green-50",
+        bg: popular ? "bg-[#C1FF72]" : "bg-green-50",
         text: popular ? "text-slate-900" : "text-green-600",
         border: "border-green-200",
-        button: "bg-green-500 hover:bg-green-600 text-slate-900",
+        button: "bg-[#C1FF72] hover:bg-green-600 text-slate-900",
       },
       purple: {
         bg: popular ? "bg-green-600" : "bg-green-50",
@@ -196,7 +196,7 @@ export default function Registration() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Registro
           </h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
+          <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Registrate ahora para asegurar tu lugar en SEIIIS 2025.
           </p>

@@ -209,7 +209,7 @@ export default function Speakers() {
           transition={{ duration: 0.6, ease: "linear" }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ponentes Destacados</h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
+          <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Conoce a los expertos internacionales que compartirán sus conocimientos en SEIIIS 2024
           </p>
@@ -231,7 +231,7 @@ export default function Speakers() {
                 placeholder="Buscar ponentes o temas..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#C1FF72] focus:border-transparent"
               />
             </div>
 
@@ -243,7 +243,7 @@ export default function Speakers() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     selectedCategory === category.id
-                      ? "bg-green-500 text-slate-900"
+                      ? "bg-[#C1FF72] text-slate-900"
                       : "bg-white text-slate-600 hover:bg-slate-100"
                   }`}
                   whileHover={{ scale: 1.05 }}
@@ -283,9 +283,9 @@ export default function Speakers() {
                         <img
                           src={speaker.image || "/placeholder.svg"}
                           alt={speaker.name}
-                          className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-green-500"
+                          className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-[#C1FF72]"
                         />
-                        <div className="absolute -top-2 -right-2 bg-green-500 text-slate-900 px-2 py-1 rounded-full text-xs font-bold">
+                        <div className="absolute -top-2 -right-2 bg-[#C1FF72] text-slate-900 px-2 py-1 rounded-full text-xs font-bold">
                           KEYNOTE
                         </div>
                       </div>
@@ -374,7 +374,7 @@ export default function Speakers() {
                       <img
                         src={speaker.image || "/placeholder.svg"}
                         alt={speaker.name}
-                        className="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-slate-200 group-hover:border-green-500 transition-colors"
+                        className="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-slate-200 group-hover:border-[#C1FF72] transition-colors"
                       />
                       <h4 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-green-600 transition-colors">
                         {speaker.name}
@@ -460,7 +460,7 @@ export default function Speakers() {
                   <img
                     src={selectedSpeaker.image || "/placeholder.svg"}
                     alt={selectedSpeaker.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-green-500"
+                    className="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-[#C1FF72]"
                   />
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">{selectedSpeaker.name}</h3>
                   <p className="text-green-600 font-semibold mb-4">{selectedSpeaker.title}</p>
@@ -469,7 +469,7 @@ export default function Speakers() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2 flex items-center">
-                      <BookOpen className="w-5 h-5 mr-2 text-green-500" />
+                      <BookOpen className="w-5 h-5 mr-2 text-[#C1FF72]" />
                       Biografía
                     </h4>
                     <p className="text-slate-600 leading-relaxed">{selectedSpeaker.bio}</p>
@@ -477,13 +477,13 @@ export default function Speakers() {
 
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2 flex items-center">
-                      <Award className="w-5 h-5 mr-2 text-green-500" />
+                      <Award className="w-5 h-5 mr-2 text-[#C1FF72]" />
                       Logros Destacados
                     </h4>
                     <ul className="space-y-2">
                       {selectedSpeaker.achievements.map((achievement: string, index: number) => (
                         <li key={index} className="flex items-center text-slate-600">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
+                          <div className="w-2 h-2 bg-[#C1FF72] rounded-full mr-3" />
                           {achievement}
                         </li>
                       ))}
@@ -492,7 +492,7 @@ export default function Speakers() {
 
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2 flex items-center">
-                      <Users className="w-5 h-5 mr-2 text-green-500" />
+                      <Users className="w-5 h-5 mr-2 text-[#C1FF72]" />
                       Sesión en SEIIIS
                     </h4>
                     <p className="text-slate-600">{selectedSpeaker.session}</p>

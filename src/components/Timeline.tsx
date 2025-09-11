@@ -78,7 +78,7 @@ export default function Timeline() {
           transition={{ duration: 0.6, ease: "linear" }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-slate-900">Historia del SEIIIS</h2>
-          <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto" />
+          <div className="w-16 sm:w-24 h-1 bg-[#C1FF72] mx-auto" />
           <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600">
             Un recorrido por una década de innovación, investigación y excelencia académica
           </p>
@@ -91,7 +91,7 @@ export default function Timeline() {
                 onClick={() => changeYear(-1)}
                 disabled={currentIndex <= 0}
                 className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-400 flex items-center justify-center transition-all ${
-                  currentIndex <= 0 ? "opacity-40 cursor-not-allowed" : "hover:border-green-500 hover:bg-green-500/10"
+                  currentIndex <= 0 ? "opacity-40 cursor-not-allowed" : "hover:border-[#C1FF72] hover:bg-[#C1FF72]/10"
                 }`}
                 whileHover={{ scale: currentIndex > 0 ? 1.05 : 1 }}
                 whileTap={{ scale: currentIndex > 0 ? 0.95 : 1 }}
@@ -104,7 +104,7 @@ export default function Timeline() {
                 className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl border-2 border-slate-400 flex items-center justify-center transition-all ${
                   currentIndex >= years.length - 1
                     ? "opacity-40 cursor-not-allowed"
-                    : "hover:border-green-500 hover:bg-green-500/10"
+                    : "hover:border-[#C1FF72] hover:bg-[#C1FF72]/10"
                 }`}
                 whileHover={{ scale: currentIndex < years.length - 1 ? 1.05 : 1 }}
                 whileTap={{ scale: currentIndex < years.length - 1 ? 0.95 : 1 }}
@@ -115,7 +115,7 @@ export default function Timeline() {
 
             <div className="text-center lg:text-right">
               {/* <div className="text-xs sm:text-sm text-slate-400 mb-1">Navega por nuestra historia</div> */}
-              <div className="text-green-500 font-semibold bg-green-500/10 px-2 sm:px-3 py-1 rounded-lg text-sm">
+              <div className="text-[#C1FF72] font-semibold bg-[#C1FF72]/10 px-2 sm:px-3 py-1 rounded-lg text-sm">
                 {currentIndex + 1} de {years.length}
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Timeline() {
             <div className="relative">
               <div className="w-full h-1 bg-slate-300 rounded-full">
                 <motion.div
-                  className="h-full bg-green-500 rounded-full"
+                  className="h-full bg-[#C1FF72] rounded-full"
                   animate={{ width: `${progressPercentage}%` }}
                   transition={{ duration: 0.3, ease: "linear" }}
                 />
@@ -164,7 +164,7 @@ export default function Timeline() {
                     }}
                     className={`w-4 sm:w-5 h-4 sm:h-5 rounded-full border-2 transition-all ${
                       index <= currentIndex
-                        ? "bg-green-500 border-green-500"
+                        ? "bg-[#C1FF72] border-[#C1FF72]"
                         : "bg-slate-300 border-slate-300 hover:border-slate-500"
                     }`}
                     whileHover={{ scale: 1.2 }}

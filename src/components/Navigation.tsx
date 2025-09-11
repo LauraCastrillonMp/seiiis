@@ -24,7 +24,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-900">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-sm border-b border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <motion.div
@@ -33,12 +33,13 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-10 sm:w-12 h-10 sm:h-12 bg-green-500 rounded-none flex items-center justify-center">
-              <Lightbulb className="w-6 sm:w-7 h-6 sm:h-7 text-black" />
-            </div>
+            {/* <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#C1FF72] rounded-none flex items-center justify-center">
+              <img src="/logo/seiiis.jpeg" alt="SEIIIS Logo" width={32} height={32} />
+            </div> */}
+            <img src="/seiiis.png" alt="SEIIIS Logo" width={100} height={80} />
             <div className="text-white">
               <div className="font-bold text-lg sm:text-xl">SEIIIS</div>
-              <div className="text-xs sm:text-sm text-gray-400 font-light">2024</div>
+              <div className="text-xs sm:text-sm text-gray-400 font-light">2025</div>
             </div>
           </motion.div>
 
@@ -48,7 +49,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
                 className={`px-3 text-sm font-medium duration-300 relative ${
-                  activeSection === item.id ? "text-green-400" : "text-gray-300 hover:text-white"
+                  activeSection === item.id ? "text-[#C1FF72]" : "text-gray-300 hover:text-white"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -84,7 +85,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                 }}
                 className={`block w-full text-left px-4 py-3 text-sm font-medium transition-all ${
                   activeSection === item.id
-                    ? "text-green-400 bg-gray-900"
+                    ? "text-[#C1FF72] bg-gray-900"
                     : "text-gray-300 hover:text-white hover:bg-gray-900"
                 }`}
                 whileTap={{ scale: 0.98 }}

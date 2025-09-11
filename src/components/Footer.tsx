@@ -15,9 +15,7 @@ export default function Footer() {
             transition={{ duration: 0.6, ease: "linear" }}
           >
             <div className="flex items-center space-x-4 mb-6">
-              <div className="w-12 h-12 bg-green-500 rounded-none flex items-center justify-center">
-                <Lightbulb className="w-7 h-7 text-black" />
-              </div>
+                <img src="/seiiis.png" alt="SEIIIS Logo" width={80} height={60} />
               <div>
                 <div className="font-bold text-2xl">SEIIIS</div>
                 <div className="text-sm text-gray-400 font-light">2025 - 10ma Edición</div>
@@ -38,7 +36,7 @@ export default function Footer() {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 bg-gray-900 hover:bg-green-500 rounded-none flex items-center justify-center transition-colors duration-300 group"
+                  className="w-10 h-10 bg-gray-900 hover:bg-[#C1FF72] rounded-none flex items-center justify-center transition-colors duration-300 group"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -53,14 +51,14 @@ export default function Footer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
           >
-            <h4 className="font-bold text-lg mb-6 text-green-400">Enlaces Rápidos</h4>
+            <h4 className="font-bold text-lg mb-6 text-[#C1FF72]">Enlaces Rápidos</h4>
             <ul className="space-y-3">
               {["Acerca del Evento", "Historia", "Programación", "Registro"].map(
                 (link, index) => (
                   <li key={index}>
                     <motion.a
                       href="#"
-                      className="text-gray-300 hover:text-green-400 transition-colors text-sm block py-1"
+                      className="text-gray-300 hover:text-[#C1FF72] transition-colors text-sm block py-1"
                       whileHover={{ x: 5 }}
                     >
                       {link}
@@ -76,10 +74,10 @@ export default function Footer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "linear" }}
           >
-            <h4 className="font-bold text-lg mb-6 text-green-400">Contacto</h4>
+            <h4 className="font-bold text-lg mb-6 text-[#C1FF72]">Contacto</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-[#C1FF72] mt-1 flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
                   <div className="font-medium">Tecnológico de Antioquia</div>
                   <div>Calle 78B #72A-220</div>
@@ -87,15 +85,15 @@ export default function Footer() {
                 </div>
               </div>
               {/* <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-green-400" />
+                <Phone className="w-5 h-5 text-[#C1FF72]" />
                 <span className="text-gray-300 text-sm">+57 (4) 444-5555</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-green-400" />
+                <Mail className="w-5 h-5 text-[#C1FF72]" />
                 <span className="text-gray-300 text-sm">info@SEIIIS.edu.co</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Camera className="w-5 h-5 text-green-400" />
+                <Camera className="w-5 h-5 text-[#C1FF72]" />
                 <span className="text-gray-300 text-sm">galeria@SEIIIS.edu.co</span>
               </div> */}
             </div>
@@ -112,7 +110,7 @@ export default function Footer() {
             © 2025 SEIIIS - Seminario Internacional de Investigación e Innovación. Todos los derechos reservados.
           </div>
           {/* <div className="text-gray-400 text-sm text-center sm:text-right">
-            Diseñado por <a href="#" className="text-green-400 hover:underline">Tu Empresa</a>
+            Diseñado por <a href="#" className="text-[#C1FF72] hover:underline">Tu Empresa</a>
           </div> */}
         </motion.div>
       </div>

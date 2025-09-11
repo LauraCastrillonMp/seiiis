@@ -25,7 +25,7 @@ export default function LoadingSpinner({ size = "md", text, className = "" }: Lo
   return (
     <div className={`flex flex-col items-center justify-center ${className}`}>
       <motion.div
-        className={`${sizeClasses[size]} bg-green-500 rounded-none flex items-center justify-center mb-3`}
+        className={`${sizeClasses[size]} bg-[#C1FF72] rounded-none flex items-center justify-center mb-3`}
         animate={{
           rotate: [0, 360],
           scale: [1, 1.1, 1],

@@ -30,7 +30,7 @@ export default function AutoImageSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((a) => (a === images.length - 1 ? 0 : a + 1));
-    }, 2500);
+    }, 2000);
     return () => clearInterval(interval); // cleanup on unmount
   }, []);
 
@@ -106,7 +106,7 @@ export default function AutoImageSlider() {
           <button
             key={idx}
             className={`w-3 h-3 rounded-full ${
-              active === idx ? "bg-green-500" : "bg-gray-300"
+              active === idx ? "bg-[#C1FF72]" : "bg-gray-300"
             }`}
             onClick={() => setActive(idx)}
           />

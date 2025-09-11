@@ -106,7 +106,7 @@ export default function HackSEIIIS() {
       place: "2do Lugar",
       prize: "$3,000,000 COP",
       benefits: ["Espacio de coworking por 3 meses", "Mentoría por 3 meses"],
-      color: "from-green-400 to-green-600",
+      color: "from-[#C1FF72] to-green-600",
       icon: "🥈",
     },
     {
@@ -278,7 +278,7 @@ export default function HackSEIIIS() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentChallenge((prev) => (prev + 1) % challenges.length)
-    }, 4000)
+    }, 3500)
 
     return () => clearInterval(timer)
   }, [])
@@ -309,7 +309,7 @@ export default function HackSEIIIS() {
           >
             Hack<span className="text-green-600">SEIIIS</span> 2024
           </motion.h2>
-          <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
+          <div className="w-16 sm:w-24 h-1 bg-[#C1FF72] mx-auto mb-6 sm:mb-8" />
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             36 horas de innovación, colaboración y tecnología para resolver desafíos reales
           </p>
@@ -479,7 +479,7 @@ export default function HackSEIIIS() {
               <span className="hidden sm:inline">{tab.label}</span>
               {activeTab === tab.id && (
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C1FF72]"
                   layoutId="activeTab"
                   transition={{ duration: 0.3 }}
                 />
@@ -626,7 +626,7 @@ export default function HackSEIIIS() {
                             animate={{ scale: i < teamSize ? 1 : 0.8 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <Users className={`w-6 h-6 ${i < teamSize ? "text-emerald-600" : "text-green-400"}`} />
+                            <Users className={`w-6 h-6 ${i < teamSize ? "text-emerald-600" : "text-[#C1FF72]"}`} />
                           </motion.div>
                         ))}
                       </div>
@@ -746,7 +746,7 @@ export default function HackSEIIIS() {
                                 className="opacity-0 group-hover:opacity-100 transition-opacity"
                                 whileHover={{ scale: 1.1 }}
                               >
-                                <div className="w-2 h-2 bg-green-500 rounded-full" />
+                                <div className="w-2 h-2 bg-[#C1FF72] rounded-full" />
                               </motion.div>
                             </div>
                           </motion.div>
@@ -813,7 +813,7 @@ export default function HackSEIIIS() {
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: i * 0.1 }}
                                 >
-                                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                                  <CheckCircle className="w-4 h-4 text-[#C1FF72] mr-2 flex-shrink-0" />
                                   <span>{benefit}</span>
                                 </motion.div>
                               ))}
@@ -841,7 +841,7 @@ export default function HackSEIIIS() {
                     <motion.div
                       key={index}
                       className={`bg-white rounded-xl p-6 shadow-sm border-2 transition-all ${
-                        mentor.available ? "border-green-200 hover:border-green-400" : "border-red-200"
+                        mentor.available ? "border-green-200 hover:border-[#C1FF72]" : "border-red-200"
                       }`}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -857,7 +857,7 @@ export default function HackSEIIIS() {
                           />
                           <div
                             className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white ${
-                              mentor.available ? "bg-green-500" : "bg-red-500"
+                              mentor.available ? "bg-[#C1FF72]" : "bg-red-500"
                             }`}
                           />
                         </div>

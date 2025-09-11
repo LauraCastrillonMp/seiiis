@@ -97,7 +97,7 @@ export default function About() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Acerca del Evento</h2>
-          <div className="w-16 sm:w-24 h-1 bg-green-500 mx-auto mb-6 sm:mb-8" />
+          <div className="w-16 sm:w-24 h-1 bg-[#C1FF72] mx-auto mb-6 sm:mb-8" />
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             El Seminario Internacional de Investigación e Innovación SEIIIS es el evento académico más importante del
             año, reuniendo a los mejores investigadores y profesionales del sector.
@@ -131,7 +131,7 @@ export default function About() {
               transition={{ duration: 0.2, ease: "linear" }}
             >
               <div className="flex items-center mb-2 sm:mb-3">
-                <Star className="w-5 sm:w-6 h-5 sm:h-6 text-green-500 mr-2" />
+                <Star className="w-5 sm:w-6 h-5 sm:h-6 text-[#C1FF72] mr-2" />
                 <h4 className="font-bold text-slate-900 text-sm sm:text-base">Reconocimiento Internacional</h4>
               </div>
               <p className="text-slate-700 text-xs sm:text-sm">
@@ -166,7 +166,7 @@ export default function About() {
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <motion.div
-                className="w-12 sm:w-16 h-12 sm:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4"
+                className="w-12 sm:w-16 h-12 sm:h-16 bg-[#C1FF72] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5, ease: "linear" }}
               >
@@ -191,7 +191,7 @@ export default function About() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 font-medium transition-colors text-sm sm:text-base ${
                   activeTab === tab.id
-                    ? "text-green-600 border-b-2 border-green-500"
+                    ? "text-green-600 border-b-2 border-[#C1FF72]"
                     : "text-slate-600 hover:text-green-600"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -220,7 +220,7 @@ export default function About() {
                     transition={{ duration: 0.4, delay: index * 0.1, ease: "linear" }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#C1FF72] rounded-lg flex items-center justify-center flex-shrink-0">
                       <objective.icon className="w-5 sm:w-6 h-5 sm:h-6 text-slate-900" />
                     </div>
                     <div>
@@ -243,7 +243,7 @@ export default function About() {
                     transition={{ duration: 0.4, delay: index * 0.1, ease: "linear" }}
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-2xl sm:text-4xl font-bold text-green-500 mb-2">{item.number}</div>
+                    <div className="text-2xl sm:text-4xl font-bold text-[#C1FF72] mb-2">{item.number}</div>
                     <div className="font-semibold text-slate-900 mb-1 text-xs sm:text-sm">{item.label}</div>
                     <div className="text-xs text-slate-600">{item.description}</div>
                   </motion.div>
@@ -264,7 +264,7 @@ export default function About() {
                   >
                     <div className="flex items-center mb-3 sm:mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 fill-current" />
+                        <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 text-[#C1FF72] fill-current" />
                       ))}
                     </div>
                     <p className="text-slate-600 mb-3 sm:mb-4 italic text-xs sm:text-sm">"{testimonial.text}"</p>

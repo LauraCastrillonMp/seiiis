@@ -170,7 +170,7 @@ export default function Sponsors() {
       green: {
         bg: "bg-green-50",
         border: "border-green-200",
-        icon: "bg-green-500",
+        icon: "bg-[#C1FF72]",
         text: "text-green-600",
       },
       orange: {
@@ -206,7 +206,7 @@ export default function Sponsors() {
           transition={{ duration: 0.6, ease: "linear" }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nuestros Patrocinadores</h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
+          <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Gracias a nuestros patrocinadores y aliados estratégicos, SEIIIS continúa siendo el evento de investigación e
             innovación más importante de la región.
@@ -309,7 +309,7 @@ export default function Sponsors() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
-              className="bg-green-500 hover:bg-green-600 text-slate-900 font-bold py-4 px-8 rounded-xl transition-colors"
+              className="bg-[#C1FF72] hover:bg-green-600 text-slate-900 font-bold py-4 px-8 rounded-xl transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

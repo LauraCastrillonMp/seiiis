@@ -82,7 +82,7 @@ export default function ImageSlider() {
         {images.map((_, idx) => (
           <button
             key={idx}
-            className={`w-3 h-3 rounded-full ${active === idx ? "bg-green-500" : "bg-gray-300"}`}
+            className={`w-3 h-3 rounded-full ${active === idx ? "bg-[#C1FF72]" : "bg-gray-300"}`}
             onClick={() => setActive(idx)}
           />
         ))}

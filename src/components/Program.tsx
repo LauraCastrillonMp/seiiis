@@ -372,7 +372,7 @@ export default function Program() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -384,7 +384,7 @@ export default function Program() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Programación
           </h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
+          <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Agenda completa del Seminario Internacional de Investigación e
             Innovación SEIIIS 2025
@@ -393,21 +393,21 @@ export default function Program() {
 
         {/* Controls */}
         <motion.div
-          className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-lg border border-green-200"
+          className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-lg border border-[#C1FF72]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
         >
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Day Selector */}
-            <div className="flex bg-green-100 rounded-xl p-1">
+            <div className="flex bg-[#C1FF72]/30 rounded-xl p-1">
               {schedule.map((day) => (
                 <motion.button
                   key={day.id}
                   onClick={() => setSelectedDay(day.id)}
                   className={`px-6 py-3 rounded-lg font-medium transition-all ${
                     selectedDay === day.id
-                      ? "bg-green-500 text-white shadow-md"
+                      ? "bg-[#C1FF72] text-green-600 shadow-md"
                       : "text-green-700 hover:text-green-900"
                   }`}
                   whileHover={{ scale: 1.02 }}
@@ -429,14 +429,14 @@ export default function Program() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "linear" }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-green-200"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-[#C1FF72]"
           >
-            <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6">
+            <div className="bg-gradient-to-r from-[#C1FF72] to-[#c5ff79] text-white p-6">
               <h3 className="text-2xl font-bold flex items-center">
-                <Calendar className="w-6 h-6 mr-3 text-green-200" />
+                <Calendar className="w-6 h-6 mr-3 text-green-600" />
                 {currentSchedule?.day}
               </h3>
-              <p className="text-green-100 mt-2">
+              <p className="text-green-800 mt-2">
                 {filteredEvents.length} eventos programados
               </p>
             </div>
@@ -469,7 +469,7 @@ export default function Program() {
 
                     <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                       <div className="flex-shrink-0 lg:w-48">
-                        <div className="flex items-center justify-center text-slate-600 font-medium bg-green-100 px-3 py-2 rounded-lg">
+                        <div className="flex items-center justify-center text-slate-600 font-medium bg-[#C1FF72]/20 px-3 py-2 rounded-lg">
                           <Clock className="w-4 h-4 mr-2 text-green-600" />
                           {event.time}
                         </div>
@@ -478,7 +478,7 @@ export default function Program() {
                       <div className="flex-grow">
                         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                           <div className="flex-grow">
-                            <h4 className="font-bold text-slate-900 mb-2 text-lg group-hover:text-green-700 transition-colors">
+                            <h4 className="font-bold text-slate-900 mb-2 text-lg group-hover:text-[#86be3d] transition-colors">
                               {event.title}
                             </h4>
                             {event.speaker && (
@@ -486,7 +486,7 @@ export default function Program() {
                                 <User className="w-4 h-4 mr-2" />
                                 Autor: {renderField((event as any).speaker, eventIndex, 'speaker')}
                                 {event.country && (
-                                  <span className="ml-4 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                                  <span className="ml-4 text-xs bg-[#C1FF72]/30 text-green-700 px-2 py-1 rounded">
                                     {renderField((event as any).country, eventIndex, 'country')}
                                   </span>
                                 )}
@@ -518,75 +518,6 @@ export default function Program() {
             </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Additional Information */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-8 mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: "linear" }}
-        >
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-200">
-            <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-              <Clock className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-slate-900 mb-2">Horarios</h4>
-            <p className="text-slate-600 text-sm">
-              Todos los horarios están en hora local de Colombia (GMT-5). Se
-              recomienda llegar 15 minutos antes de cada evento.
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-200">
-            <div className="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mb-4">
-              <MapPin className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-slate-900 mb-2">Ubicaciones</h4>
-            <p className="text-slate-600 text-sm">
-              Todos los eventos se realizan en las instalaciones del Tecnológico
-              de Antioquia. Mapas detallados disponibles en recepción.
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-200">
-            <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
-              <Star className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-slate-900 mb-2">
-              Eventos Destacados
-            </h4>
-            <p className="text-slate-600 text-sm">
-              Los eventos marcados como destacados requieren registro previo y
-              tienen cupos limitados.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Download Program CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1, ease: "linear" }}
-        >
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              ¿Quieres tener el programa completo?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Descarga el programa detallado con información adicional, mapas y
-              contactos de los ponentes.
-            </p>
-            <motion.button
-              className="bg-white text-green-700 font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-colors inline-flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-5 h-5" />
-              <span>Descargar Programa Completo (PDF)</span>
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

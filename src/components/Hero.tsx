@@ -54,7 +54,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
         <div className="absolute inset-0">
           <div className=""></div>
           <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#C1FF72]/10 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -72,7 +72,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
             >
               SEIIIS
               <motion.span
-                className="block text-green-400"
+                className="block text-[#C1FF72]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -93,11 +93,11 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-10">
                 <div className="flex items-center space-x-3 text-gray-300">
-                  <Calendar className="w-5 h-5 text-green-400" />
+                  <Calendar className="w-5 h-5 text-[#C1FF72]" />
                   <span className="font-medium">23-24 Octubre 2025</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
-                  <MapPin className="w-5 h-5 text-green-400" />
+                  <MapPin className="w-5 h-5 text-[#C1FF72]" />
                   <span className="font-medium">Tecnológico de Antioquia</span>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
                   <motion.div
                     key={item.label}
                     className="bg-black/50 backdrop-blur-sm border border-gray-800 rounded-lg p-4 sm:p-6 text-center"
-                    whileHover={{ scale: 1.05, borderColor: "#10b981" }}
+                    whileHover={{ scale: 1.05, borderColor: "#C1FF72" }}
                     transition={{ duration: 0.2 }}
                   >
                     <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
@@ -139,7 +139,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
               transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
             >
               <motion.button
-                className="group bg-green-500 hover:bg-green-400 text-black font-bold py-4 px-8 sm:px-12 rounded-none text-lg sm:text-xl transition-all duration-300"
+                className="group bg-[#C1FF72] hover:bg-[#dbf167] text-black font-bold py-4 px-8 sm:px-12 rounded-none text-lg sm:text-xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveSection("registro")}
@@ -158,7 +158,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-8">
+            <h3 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-8">
               Organizadores
             </h3>
           </div>
@@ -188,7 +188,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
             <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
               Momentos SEIIIS
             </h2>
-            <div className="w-24 h-1 bg-green-500 mx-auto mb-6" />
+            <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-6" />
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Revive los mejores momentos de ediciones anteriores
             </p>
@@ -220,7 +220,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-4xl sm:text-5xl font-black text-green-400 mb-2 group-hover:text-green-300 transition-colors">
+                <div className="text-4xl sm:text-5xl font-black text-[#C1FF72] mb-2 group-hover:text-[#C1FF72] transition-colors">
                   {stat.number}
                 </div>
                 <div className="text-lg font-bold text-white mb-1">
@@ -243,7 +243,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
             >
               <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
                 Una Década de
-                <span className="block text-green-500">Innovación</span>
+                <span className="block text-[#C1FF72]">Innovación</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Desde 2014, SEIIIS ha sido el punto de encuentro más importante
@@ -252,19 +252,19 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
               </p>
               {/* <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  <div className="w-2 h-2 bg-[#C1FF72] rounded-full" />
                   <span className="text-gray-700">
                     Investigación de vanguardia
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  <div className="w-2 h-2 bg-[#C1FF72] rounded-full" />
                   <span className="text-gray-700">
                     Networking internacional
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  <div className="w-2 h-2 bg-[#C1FF72] rounded-full" />
                   <span className="text-gray-700">Innovación aplicada</span>
                 </div>
               </div> */}
@@ -279,7 +279,7 @@ export default function Hero({ setActiveSection }: { setActiveSection: (section:
               <div className="bg-black rounded-none overflow-hidden">
                 <AutoImageSlider />
               </div>
-              {/* <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-green-500 rounded-none flex items-center justify-center">
+              {/* <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#C1FF72] rounded-none flex items-center justify-center">
                 <Award className="w-12 h-12 text-black" />
               </div> */}
             </motion.div>

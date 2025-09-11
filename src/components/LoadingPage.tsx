@@ -73,7 +73,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-green-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#C1FF72]/10 via-transparent to-[#C1FF72]/5" />
           <motion.div
             className="absolute inset-0"
             style={{
@@ -101,21 +101,15 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.div
-              className="w-20 h-20 bg-green-500 rounded-none flex items-center justify-center mx-auto mb-6"
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(16, 185, 129, 0.4)",
-                  "0 0 0 20px rgba(16, 185, 129, 0)",
-                  "0 0 0 0 rgba(16, 185, 129, 0)",
-                ],
-              }}
+              className="w-60 h-60 rounded-none flex items-center justify-center mx-auto"
+              
               transition={{
                 duration: 2,
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
             >
-              <Lightbulb className="w-10 h-10 text-black" />
+              <img src="/seiiis.png" alt="SEIIIS Logo" width={300} height={240} />
             </motion.div>
 
             <motion.div
@@ -124,7 +118,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <h1 className="text-4xl font-black text-white mb-2">SEIIIS</h1>
-              <p className="text-green-400 text-lg font-light">2025</p>
+              <p className="text-[#C1FF72] text-lg font-light">2025</p>
               <p className="text-gray-400 text-sm mt-2">11.ª Edición</p>
             </motion.div>
           </motion.div>
@@ -155,7 +149,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
             <div className="relative">
               <div className="w-full h-1 bg-gray-800 rounded-none overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-green-500 to-green-400"
+                  className="h-full bg-gradient-to-r from-[#C1FF72] to-[#C1FF72]"
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.1, ease: "easeOut" }}
@@ -164,7 +158,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
 
               {/* Progress Percentage */}
               {/* <motion.div
-                className="absolute -top-8 right-0 text-green-400 text-xs font-mono"
+                className="absolute -top-8 right-0 text-[#C1FF72] text-xs font-mono"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
@@ -195,7 +189,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
                   }}
                 >
                   <motion.div
-                    className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-16 h-16 bg-[#C1FF72] rounded-full flex items-center justify-center mx-auto mb-4"
                     initial={{ rotate: 0 }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -212,7 +206,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
                       <motion.path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </motion.svg>
                   </motion.div>
-                  <p className="text-green-400 font-medium">¡Bienvenido a SEIIIS 2024!</p>
+                  <p className="text-[#C1FF72] font-medium">¡Bienvenido a SEIIIS 2024!</p>
                 </motion.div>
               </motion.div>
             )}
@@ -237,7 +231,7 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
           animate={{ opacity: 0.3 }}
           transition={{ delay: 1 }}
         >
-          <Loader2 className="w-6 h-6 text-green-500 animate-spin" />
+          <Loader2 className="w-6 h-6 text-[#C1FF72] animate-spin" />
         </motion.div> */}
       </motion.div>
     </AnimatePresence>
