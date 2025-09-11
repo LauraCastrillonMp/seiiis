@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import "./styles/globals.css";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
@@ -7,28 +7,34 @@ import LoadingPage from "./components/LoadingPage";
 import About from "./components/About";
 import Timeline from "./components/Timeline";
 import Program from "./components/Program";
-import Speakers from "./components/Speakers"; 
+import Speakers from "./components/Speakers";
 import HackSEIIIS from "./components/HackSEIIIS";
 import PhotoGallery from "./components/PhotoGallery";
 import Sponsors from "./components/Sponsors";
 import Registration from "./components/Registration";
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState("inicio");
-  const [isLoading, setIsLoading] = useState(true)
-  const [showContent, setShowContent] = useState(false)
+  const [activeSection, setActiveSection] = useState(() => {
+    return localStorage.getItem("activeSection") || "inicio";
+  });
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   const handleLoadingComplete = () => {
-    setIsLoading(false)
+    setIsLoading(false);
     setTimeout(() => {
-      setShowContent(true)
-    }, 100)
-  }
+      setShowContent(true);
+    }, 100);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("activeSection", activeSection);
+  }, [activeSection]);
 
   const renderSection = () => {
     switch (activeSection) {
       case "inicio":
-        return <Hero />;
+        return <Hero setActiveSection={setActiveSection} />;
       case "acerca":
         return <About />;
       case "historia":
@@ -46,30 +52,30 @@ export default function App() {
       case "registro":
         return <Registration />;
       default:
-        return <Hero />;
+        return <Hero setActiveSection={setActiveSection} />;
     }
   };
 
   if (isLoading) {
-    return <LoadingPage onLoadingComplete={handleLoadingComplete} />
+    return <LoadingPage onLoadingComplete={handleLoadingComplete} />;
   }
 
   return (
     <main className="min-h-screen bg-white">
-      {/* {showContent && (
-        <>
-          <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-          <div className="pt-16 sm:pt-20">{renderSection()}</div>
-          <Footer />
-        </>
-      )} */}
-      <Suspense fallback={<div className="flex items-center justify-center h-screen"><LoadingPage onLoadingComplete={handleLoadingComplete} /></div>}>
-        <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-        <div className="pt-16 sm:pt-20">
-          {renderSection()}
-        </div>
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center h-screen">
+            <LoadingPage onLoadingComplete={handleLoadingComplete} />
+          </div>
+        }
+      >
+        <Navigation
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
+        <div className="pt-16 sm:pt-20">{renderSection()}</div>
         <Footer />
       </Suspense>
     </main>
   );
-} 
+}

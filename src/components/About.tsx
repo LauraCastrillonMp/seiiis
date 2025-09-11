@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Target, Users, Award, Lightbulb, BookOpen, Globe, Zap, Heart, Star, TrendingUp } from "lucide-react"
 import { useState } from "react"
+import AutoImageSlider from "./AutoImageSlider"
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("objetivos")
@@ -143,30 +144,9 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "linear" }}
-            className="relative"
+            transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
           >
-            <motion.div
-              className="aspect-square rounded-2xl bg-cover bg-center shadow-2xl overflow-hidden"
-              style={{
-                backgroundImage: "url('/research-bg.png')",
-              }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "linear" }}
-            >
-              <div className="absolute inset-0 bg-slate-900/20 rounded-2xl" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8, ease: "linear" }}
-                >
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">10 Años</div>
-                  <div className="text-slate-600 text-sm sm:text-base">de Innovación</div>
-                </motion.div>
-              </div>
-            </motion.div>
+            <AutoImageSlider />
           </motion.div>
         </div>
 

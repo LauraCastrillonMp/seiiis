@@ -1,204 +1,254 @@
-"use client"
+"use client";
 
-import { motion, AnimatePresence } from "motion/react"
-import { Clock, MapPin, User, Calendar, Filter, Search, Download, Star } from "lucide-react"
-import { useState } from "react"
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Clock,
+  MapPin,
+  User,
+  Calendar,
+  Filter,
+  Search,
+  Download,
+  Star,
+  GraduationCap,
+  Landmark,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Program() {
-  const [selectedDay, setSelectedDay] = useState("dia1")
-  const [selectedFilter, setSelectedFilter] = useState("todos")
-  const [searchTerm, setSearchTerm] = useState("")
+  const [selectedDay, setSelectedDay] = useState("dia1");
+  const [selectedFilter, setSelectedFilter] = useState("todos");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [expandedFields, setExpandedFields] = useState<Record<string, boolean>>({});
 
   const schedule = [
     {
       id: "dia1",
-      day: "Día 1 - 24 de Octubre",
+      day: "Día 1 - 23 de Octubre",
       events: [
         {
-          time: "8:00 - 9:00",
-          title: "Registro y Acreditación",
-          speaker: "Comité Organizador",
-          location: "Hall Principal",
-          type: "registro",
-          description: "Bienvenida a participantes, entrega de credenciales y material del evento",
-          capacity: "500 personas",
+          time: "8:15 - 8:30",
+          title: "Apertura del Evento",
+          speaker:
+            "Decano de la Facultad de Ingeniería del Tecnologico de Antioquia",
+          location: "Auditorio - Tecnologico de Antioquia",
+          type: "inaguración",
+          country: "Colombia",
         },
         {
-          time: "9:00 - 9:30",
-          title: "Ceremonia de Apertura",
-          speaker: "Rector TdeA - Dr. Lorenzo Portocarrero",
-          location: "Auditorio Principal",
-          type: "ceremonia",
-          description: "Palabras de bienvenida y presentación oficial del evento",
-          capacity: "400 personas",
+          time: "8:30 - 9:20",
+          title: "Ciencia de datos para la mejora de la vida en las Ciudades",
+          speaker: "Hugo Estrada Esquivel - Doctor en Informática",
+          location: "Auditorio - Tecnologico de Antioquia",
+          type: "conferencia 1",
+          university: "CENIDET",
+          country: "México",
+          responsable: "Tecnológico de Antioquia",
         },
         {
-          time: "9:30 - 10:30",
-          title: "Conferencia Magistral: IA y el Futuro de la Investigación",
-          speaker: "Dr. María González - Universidad de Barcelona",
-          location: "Auditorio Principal",
-          type: "conferencia",
-          description:
-            "Exploración de cómo la inteligencia artificial está transformando los métodos de investigación científica",
-          capacity: "400 personas",
-          featured: true,
+          time: "9:30 - 10:20",
+          title: "Seguridad Defensiva al Límite",
+          speaker:
+            "Miguel Fabián Robles Angarita - Magister en Administración de Tecnologías de Información, Master en Desarrollo Web",
+          location: "Auditorio - Tecnologico de Antioquia",
+          type: "conferencia 2",
+          university:
+            "Universidad Francisco de Paula Santander,  Empresa Robles Tecnologia",
+          country: "Colombia",
+          responsable: "Universidad de Santander",
+          // featured: true,
         },
         {
-          time: "10:30 - 11:00",
-          title: "Coffee Break & Networking",
-          speaker: "",
-          location: "Hall Principal",
-          type: "break",
-          description: "Espacio para networking y degustación de café colombiano",
-          capacity: "500 personas",
+          time: "11:00 - 11:40",
+          title:
+            "Sistema de Inteligencia de Negocios para identificar factores asociados al Intento de Suicidio en el Departamento del Cauca",
+          speaker:
+            "Fredy Alonso Vidal Alegria - Especialista en Administración de la Información y Bases de Datos, Magister en Educación, Magister en Gestión de Tecnología de la Información",
+          location: "Auditorio - Tecnologico de Antioquia",
+          type: "ponencia 1",
+          university: "Institución Universitaria Colegio Mayor del Cauca",
+          country: "Colombia",
+          responsable: "Institucion Universitaria Colegio Mayor del Cauca",
         },
         {
-          time: "11:00 - 12:30",
-          title: "Panel: Innovación en Biotecnología",
-          speaker: "Panel de Expertos Internacionales",
-          location: "Auditorio Principal",
-          type: "panel",
-          description: "Mesa redonda sobre los últimos avances en biotecnología aplicada",
-          capacity: "400 personas",
+          time: "14:00",
+          title: "Organizational Data Analysis with Python",
+          speaker:
+            "Walter Hugo Arboleda Mazo - Doctor of Philosophy (PhD) in Information Technology",
+          location: "Microsoft Teams",
+          type: "taller 1",
+          university: "Institución Universitaria Digital de Antioquia",
+          country: "Colombia",
+          responsable: "Institución Universitaria Digital de Antioquia",
         },
         {
-          time: "12:30 - 14:00",
-          title: "Almuerzo de Networking",
-          speaker: "",
-          location: "Cafetería Central",
-          type: "break",
-          description: "Almuerzo con oportunidades de networking entre participantes",
-          capacity: "500 personas",
+          time: "14:00",
+          title: "Aplicaciones móviles híbridas",
+          speaker:
+            "José de Jesús Soto Padilla - Maestro en Administración de Tecnologías de Información",
+          location: "Microsoft Teams",
+          type: "taller 2",
+          university: "Instituto Tecnológico de Sonora",
+          country: "México",
+          responsable: "Instituto Tecnológico de Sonora",
         },
         {
-          time: "14:00 - 15:30",
-          title: "Talleres Paralelos",
-          speaker: "Diversos Facilitadores",
-          location: "Salas 1-4",
-          type: "taller",
-          description:
-            "Talleres prácticos en metodologías de investigación, escritura científica y gestión de proyectos",
-          capacity: "25 personas por taller",
+          time: "16:00",
+          title:
+            "De Cero a Héroe en la Nube: Construyendo y Blindando una Aplicación Web en Oracle Cloud (OCI)",
+          speaker: "Sergio Ariza - Ingeniero de Sistemas, Cloud Architect",
+          location: "Microsoft Teams",
+          type: "taller 3",
+          university: "Oracle, Universidad de Santander",
+          country: "Colombia",
+          responsable: "Universidad de Santander",
         },
         {
-          time: "15:30 - 16:00",
-          title: "Coffee Break",
-          speaker: "",
-          location: "Hall Principal",
-          type: "break",
-          description: "Pausa para café y networking",
-          capacity: "500 personas",
+          time: "16:00",
+          title: "Ingeniería en acción: Tendencias y prácticas",
+          speaker: "Sara Munevar Salcedo - Magister",
+          location: "Microsoft Teams",
+          type: "taller 4",
+          university: "Universidad Catolica Luis Amigo",
+          country: "Colombia",
+          responsable: "Universidad Catolica Luis Amigo",
         },
         {
-          time: "16:00 - 17:30",
-          title: "Presentación de Proyectos Estudiantiles",
-          speaker: "Estudiantes Participantes",
-          location: "Auditorio Secundario",
-          type: "presentacion",
-          description: "Presentación de los mejores proyectos de investigación estudiantil",
-          capacity: "200 personas",
+          time: "18:15 - 18:50",
+          title:
+            "Data as a Strategic Asset towards a Data Governance Strategy for SMEs",
+          speaker:
+            "Walter Hugo Arboleda Mazo - Doctor of Philosophy (PhD) in Information Technology",
+          location: "Auditorio-I.U digital",
+          type: "conferencia 3",
+          university: "Institución Universitaria Digital de Antioquia",
+          country: "Colombia",
+          responsable: "Institución Universitaria Digital de Antioquia",
         },
         {
-          time: "18:00 - 20:00",
-          title: "Cóctel de Bienvenida",
-          speaker: "",
-          location: "Terraza Principal",
-          type: "social",
-          description: "Evento social para fortalecer vínculos entre participantes",
-          capacity: "300 personas",
+          time: "19:00 - 19:20",
+          title:
+            "Conectando  las habilidades del pensamiento computacional y del pensamiento matemático através de juegos serios",
+          speaker: [
+            "Eleonora Palta Velasco - Magister",
+            "Fredy Alonso Vidal Alegría - Magister"
+          ],
+          location: "Auditorio-I.U digital",
+          type: "ponencia 2",
+          university: "Institucion Universitaria Colegio Mayor del Cauca",
+          country: "Colombia",
+          responsable: "Institucion Universitaria Colegio Mayor del Cauca",
+        },
+        {
+          time: "19:25 - 19:50",
+          title: "El rol del Ingeniero en Software en el futuro de la IoT",
+          speaker:
+            "Ramón René Palacio Cinco - Doctor en Ciencias, campo de la Ingeniería Computacional",
+          location: "Auditorio-I.U digital",
+          type: "ponencia 3",
+          university: "Instituto Tecnológico de Sonora",
+          country: "México",
+          responsable: "Instituto Tecnológico de Sonora",
         },
       ],
     },
     {
       id: "dia2",
-      day: "Día 2 - 25 de Octubre",
+      day: "Día 2 - 24 de Octubre",
       events: [
         {
-          time: "8:30 - 9:00",
-          title: "Registro Día 2",
-          speaker: "Comité Organizador",
-          location: "Hall Principal",
-          type: "registro",
-          description: "Registro para participantes del segundo día",
-          capacity: "500 personas",
+          time: "8:15 - 9:00",
+          title: "Inteligencia Artificial Vs Ingenieria de Software",
+          speaker:
+            "Agustin Lagunes Dominguez - Doctor en Sistemas y Ambientes Educativos",
+          location:
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
+          type: "conferencia 4",
+          university: "Universidad Veracruzana",
+          country: "México",
+          responsable: "Universidad Veracruzana",
         },
         {
-          time: "9:00 - 10:00",
-          title: "Conferencia: Sostenibilidad en la Investigación",
-          speaker: "Dr. Carlos Mendoza - MIT",
-          location: "Auditorio Principal",
-          type: "conferencia",
-          description: "Cómo integrar principios de sostenibilidad en proyectos de investigación",
-          capacity: "400 personas",
-          featured: true,
+          time: "9:00 - 9:45",
+          title: "Sistemas Expertos de apoyo a la decisión basados en IA",
+          speaker: "Rita Flores Asis - Doctor en Ciencias de la Ingeniería",
+          location: "Auditorio - Tecnologico de Antioquia",
+          type: "conferencia 5",
+          university: "Universidad Veracruzana",
+          country: "México",
+          responsable: "Universidad Veracruzana",
         },
         {
-          time: "10:00 - 10:30",
-          title: "Coffee Break",
-          speaker: "",
-          location: "Hall Principal",
-          type: "break",
-          description: "Pausa para café y networking",
-          capacity: "500 personas",
+          time: "10:00 - 12:00",
+          title:
+            "Muestra de proyectos académicos: innovación y desarrollo desde el aula",
+          speaker:
+            "Estudiantes de Pregrado - Ingeniería en Software, Tecnología en Sistemas",
+          location:
+            "Auditorio- Politecnico Jaime Isaza Cadavid- Fernando Gomez Martinez",
+          type: "presentacion poster",
+          university: "Tecnologico de Antioquia",
+          country: "Colombia",
+          responsable: "Tecnologico de Antioquia",
         },
         {
-          time: "10:30 - 12:00",
-          title: "Mesa Redonda: Transferencia de Tecnología",
-          speaker: "Panel Internacional",
-          location: "Auditorio Principal",
-          type: "panel",
-          description: "Discusión sobre estrategias efectivas para la transferencia de tecnología universidad-empresa",
-          capacity: "400 personas",
+          time: "9:45 - 10:30",
+          title: "Calculadora de matriz inversa usando IA generativa",
+          speaker: "Hernan Ahumada - Doctor en Informatica",
+          location: "Auditorio- Politecnico Jaime Isaza Cadavid- Fernando Gomez Martinez",
+          type: "ponencia 1",
+          university: "Universidad de Catamarca",
+          country: "Argentina",
+          responsable: "Universidad de Catamarca",
         },
         {
-          time: "12:00 - 13:30",
-          title: "Almuerzo",
-          speaker: "",
-          location: "Cafetería Central",
-          type: "break",
-          description: "Almuerzo con networking",
-          capacity: "500 personas",
+          time: "10:30 - 10:50",
+          title: "Fortalecimiento  de competencias  matemáticas para las pruebas Saber Pro Y T&T  de los estudiantes de ingeniería integrando las habilidades  del pensamiento computacional",
+          speaker: [
+            "Melany Lemes Yotengo - Estudiante de Ingeniería en Software",
+            "Karen Liseth Mendez - Estudiante de Ingeniería en Software",
+            "Angie Vanessa Argote - Estudiante de Ingenieria Informatica",
+            "Carlos Mario Bucheli - Estudiante de Ingenieria Informatica"
+          ],
+          location: "Auditorio-Jaime Isaza Cadavid- Fernando Gomez Martinez",
+          type: "ponencia 4",
+          university: "Institucion Universitaria Colegio Mayor del Cauca",
+          country: "Colombia",
+          responsable: "Institucion Universitaria Colegio Mayor del Cauca",
         },
         {
-          time: "13:30 - 15:00",
-          title: "Hackathon SEIIIS - Presentación de Soluciones",
-          speaker: "Equipos Participantes",
-          location: "Laboratorio de Innovación",
-          type: "hackathon",
-          description: "Presentación de soluciones innovadoras desarrolladas durante el hackathon",
-          capacity: "150 personas",
-          featured: true,
-        },
-        {
-          time: "15:00 - 15:30",
-          title: "Coffee Break",
-          speaker: "",
-          location: "Hall Principal",
-          type: "break",
-          description: "Pausa para café",
-          capacity: "500 personas",
-        },
-        {
-          time: "15:30 - 16:30",
-          title: "Premiación y Reconocimientos",
-          speaker: "Comité Académico",
-          location: "Auditorio Principal",
-          type: "ceremonia",
-          description: "Entrega de premios a los mejores proyectos y participaciones destacadas",
-          capacity: "400 personas",
-        },
-        {
-          time: "16:30 - 17:00",
-          title: "Ceremonia de Clausura",
-          speaker: "Directivos TdeA",
-          location: "Auditorio Principal",
-          type: "ceremonia",
-          description: "Palabras de clausura y anuncio de la próxima edición",
-          capacity: "400 personas",
+          time: "11:00 - 12:00",
+          title: "Tecnologias   Aplicadas en la Educación y Sector Productivo",
+          speaker: [
+            "Hugo Estrada Esquivel - Doctor en Informática",
+            "Jorge Guadalupe Mendoza - Doctor en Informática",
+            "Nicolas Prieto Medina - Ingeniero Electrónico",
+            "Walter Hugo Arboleda Mazo - Doctor of Philosophy (PhD) in Information Technology"
+          ],
+          location: [
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez"
+          ],
+          type: "panel con expertos",
+          university: [
+            "CENIDET",
+            "Instituto Tecnológico de Sonora",
+            "Por definir",
+            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez"
+          ],
+          country: ["México", "México", "Por definir", "Colombia"],
+          responsable: [
+            "CENIDET",
+            "Instituto Tecnológico de Sonora",
+            "Por definir",
+            "Institución Universitaria Digital de Antioquia"
+          ],
         },
       ],
     },
-  ]
+  ];
 
   const eventTypes = [
     { id: "todos", label: "Todos los Eventos", count: 0 },
@@ -208,7 +258,20 @@ export default function Program() {
     { id: "presentacion", label: "Presentaciones", count: 0 },
     { id: "hackathon", label: "Hackathon", count: 0 },
     { id: "ceremonia", label: "Ceremonias", count: 0 },
-  ]
+  ];
+
+  // Map raw event.type values (e.g., "conferencia 1", "ponencia 3") to base categories used in filters
+  const getBaseEventType = (rawType?: string) => {
+    if (!rawType) return null;
+    const t = rawType.toLowerCase();
+    if (t.includes("conferencia")) return "conferencia";
+    if (t.includes("taller")) return "taller";
+    if (t.includes("panel")) return "panel";
+    if (t.includes("presentacion") || t.includes("ponencia")) return "presentacion";
+    if (t.includes("inag") || t.includes("inaug") || t.includes("apertura") || t.includes("cierre")) return "ceremonia";
+    if (t.includes("hack")) return "hackathon";
+    return null; // unclassified types won't appear in the filter list
+  };
 
   const getEventTypeColor = (type: string) => {
     const colors = {
@@ -221,19 +284,92 @@ export default function Program() {
       hackathon: "bg-teal-100 text-teal-800 border-teal-200",
       break: "bg-gray-100 text-gray-600 border-gray-200",
       social: "bg-green-100 text-green-800 border-green-200",
-    }
-    return colors[type as keyof typeof colors] || colors.break
-  }
+    };
+    return colors[type as keyof typeof colors] || colors.break;
+  };
 
-  const currentSchedule = schedule.find((s) => s.id === selectedDay)
-  const filteredEvents =
-    currentSchedule?.events.filter((event) => {
-      const matchesFilter = selectedFilter === "todos" || event.type === selectedFilter
-      const matchesSearch =
-        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.speaker.toLowerCase().includes(searchTerm.toLowerCase())
-      return matchesFilter && matchesSearch
-    }) || []
+  const currentSchedule = schedule.find((s) => s.id === selectedDay);
+  const currentEvents = currentSchedule?.events || [];
+
+  // Compute available filters with counts for the selected day
+  const typeCounts = currentEvents.reduce((acc: Record<string, number>, ev) => {
+    const base = getBaseEventType((ev as any).type);
+    if (!base) return acc;
+    acc[base] = (acc[base] || 0) + 1;
+    return acc;
+  }, {});
+
+  const dynamicEventTypes = [
+    { id: "todos", label: "Todos los Eventos", count: currentEvents.length },
+    ...eventTypes
+      .filter((t) => t.id !== "todos")
+      .map((t) => ({ ...t, count: typeCounts[t.id] || 0 }))
+      .filter((t) => t.count > 0),
+  ];
+
+  // Ensure selectedFilter is valid for the current day
+  useEffect(() => {
+    const available = new Set(dynamicEventTypes.map((t) => t.id));
+    if (!available.has(selectedFilter)) {
+      setSelectedFilter("todos");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedDay]);
+
+  const filteredEvents = currentEvents.filter((event) => {
+    const baseType = getBaseEventType((event as any).type);
+    const matchesFilter = selectedFilter === "todos" || baseType === selectedFilter;
+    const matchesSearch = event.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  // UI helpers
+  const renderArray = (items: any[], key: string) => {
+    const safeItems = items.filter((i) => i !== undefined && i !== null).map(String);
+    const maxVisible = 2;
+    const expanded = !!expandedFields[key];
+    if (safeItems.length <= maxVisible) {
+      return <span>{safeItems.join(" · ")}</span>;
+    }
+    if (expanded) {
+      return (
+        <>
+          <span className="mr-2">{safeItems.join(" · ")}</span>
+          <button
+            type="button"
+            className="text-green-700 hover:text-green-800 text-xs underline"
+            onClick={() => setExpandedFields((prev) => ({ ...prev, [key]: false }))}
+          >
+            ver menos
+          </button>
+        </>
+      );
+    }
+    const visible = safeItems.slice(0, maxVisible).join(" · ");
+    const remaining = safeItems.slice(maxVisible);
+    const remainingCount = remaining.length;
+    return (
+      <>
+        <span className="mr-2">{visible}</span>
+        <button
+          type="button"
+          className="text-green-700 hover:text-green-800 text-xs underline"
+          title={remaining.join(" · ")}
+          onClick={() => setExpandedFields((prev) => ({ ...prev, [key]: true }))}
+        >
+          y {remainingCount} más
+        </button>
+      </>
+    );
+  };
+
+  const renderField = (value: any, eventIndex: number, fieldId: string) => {
+    if (Array.isArray(value)) return renderArray(value, `${eventIndex}-${fieldId}`);
+    if (value === undefined || value === null) return "";
+    return String(value);
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
@@ -245,10 +381,13 @@ export default function Program() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "linear" }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Programación</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Programación
+          </h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Agenda completa del Seminario Internacional de Investigación e Innovación SEIIIS 2024
+            Agenda completa del Seminario Internacional de Investigación e
+            Innovación SEIIIS 2025
           </p>
         </motion.div>
 
@@ -267,7 +406,9 @@ export default function Program() {
                   key={day.id}
                   onClick={() => setSelectedDay(day.id)}
                   className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                    selectedDay === day.id ? "bg-green-500 text-white shadow-md" : "text-green-700 hover:text-green-900"
+                    selectedDay === day.id
+                      ? "bg-green-500 text-white shadow-md"
+                      : "text-green-700 hover:text-green-900"
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -276,45 +417,8 @@ export default function Program() {
                 </motion.button>
               ))}
             </div>
-
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-500 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Buscar eventos o ponentes..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/80"
-              />
             </div>
 
-            {/* Filter */}
-            <div className="flex items-center space-x-2">
-              <Filter className="w-5 h-5 text-green-600" />
-              <select
-                value={selectedFilter}
-                onChange={(e) => setSelectedFilter(e.target.value)}
-                className="px-4 py-3 border border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/80"
-              >
-                {eventTypes.map((type) => (
-                  <option key={type.id} value={type.id}>
-                    {type.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Download */}
-            <motion.button
-              className="flex items-center space-x-2 bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-5 h-5" />
-              <span>Descargar PDF</span>
-            </motion.button>
-          </div>
         </motion.div>
 
         {/* Schedule */}
@@ -332,32 +436,40 @@ export default function Program() {
                 <Calendar className="w-6 h-6 mr-3 text-green-200" />
                 {currentSchedule?.day}
               </h3>
-              <p className="text-green-100 mt-2">{filteredEvents.length} eventos programados</p>
+              <p className="text-green-100 mt-2">
+                {filteredEvents.length} eventos programados
+              </p>
             </div>
 
             <div className="p-6">
               <div className="space-y-4">
+                {filteredEvents.length === 0 && (
+                  <div className="text-center py-16 bg-white/60 rounded-xl border border-green-100">
+                    <p className="text-slate-700 text-lg mb-2">No hay eventos que coincidan.</p>
+                    <p className="text-slate-500 text-sm">Prueba cambiando el filtro o la búsqueda.</p>
+                  </div>
+                )}
                 {filteredEvents.map((event, eventIndex) => (
                   <motion.div
                     key={eventIndex}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.35, delay: eventIndex * 0.07, ease: "easeOut" }} // smoother
-                    className={`relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100 ${
-                      event.featured ? "ring-2 ring-green-500 bg-green-50/80 hover:bg-green-100/80" : ""
-                    }`}
-                    whileHover={{ scale: 1.015, y: -1, transition: { duration: 0.08, ease: "easeOut" } }} // instant hover
+                    transition={{
+                      duration: 0.35,
+                      delay: eventIndex * 0.07,
+                      ease: "easeOut",
+                    }} // smoother
+                    className={'relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100'}
+                    whileHover={{
+                      scale: 1.015,
+                      y: -1,
+                      transition: { duration: 0.08, ease: "easeOut" },
+                    }} // instant hover
                   >
-                    {event.featured && (
-                      <div className="absolute -top-2 -right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center">
-                        <Star className="w-3 h-3 mr-1" />
-                        DESTACADO
-                      </div>
-                    )}
 
                     <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-                      <div className="lg:w-32 flex-shrink-0">
-                        <div className="flex items-center text-slate-600 font-medium bg-green-100 px-3 py-2 rounded-lg">
+                      <div className="flex-shrink-0 lg:w-48">
+                        <div className="flex items-center justify-center text-slate-600 font-medium bg-green-100 px-3 py-2 rounded-lg">
                           <Clock className="w-4 h-4 mr-2 text-green-600" />
                           {event.time}
                         </div>
@@ -372,39 +484,31 @@ export default function Program() {
                             {event.speaker && (
                               <div className="flex items-center text-slate-600 text-sm mb-2">
                                 <User className="w-4 h-4 mr-2" />
-                                {event.speaker}
+                                Autor: {renderField((event as any).speaker, eventIndex, 'speaker')}
+                                {event.country && (
+                                  <span className="ml-4 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                                    {renderField((event as any).country, eventIndex, 'country')}
+                                  </span>
+                                )}
                               </div>
                             )}
-                            <div className="flex items-center text-slate-600 text-sm mb-3">
-                              <MapPin className="w-4 h-4 mr-2" />
-                              {event.location}
-                              {event.capacity && (
-                                <span className="ml-4 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
-                                  {event.capacity}
-                                </span>
-                              )}
+                            <div className="flex items-center text-slate-600 text-sm mb-2">
+                              <GraduationCap className="w-4 h-4 mr-2" />
+                              Universidad: {renderField((event as any).university, eventIndex, 'university')}
                             </div>
-                            {event.description && (
-                              <p className="text-slate-600 text-sm leading-relaxed mb-3">{event.description}</p>
+                            {event.responsable && (
+                              <div className="flex items-center text-slate-600 text-sm mb-2">
+                                <Landmark className="w-4 h-4 mr-2" />
+                                Responsable: {renderField((event as any).responsable, eventIndex, 'responsable')}
+                              </div>
                             )}
+                            <div className="flex items-center text-slate-600 text-sm mb-2">
+                              <MapPin className="w-4 h-4 mr-2" />
+                              Lugar: {renderField((event as any).location, eventIndex, 'location')}
+                            </div>
                           </div>
 
-                          <div className="flex flex-col items-end gap-2">
-                            <span
-                              className={`px-3 py-1 rounded-full text-xs font-medium border ${getEventTypeColor(event.type)}`}
-                            >
-                              {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-                            </span>
-                            {event.type !== "break" && event.type !== "registro" && (
-                              <motion.button
-                                className="text-green-600 hover:text-green-700 text-sm font-medium"
-                                whileHover={{ scale: 1.03, transition: { duration: 0.08, ease: "easeOut" } }} // instant hover
-                                whileTap={{ scale: 0.97, transition: { duration: 0.08, ease: "easeInOut" } }} // instant tap
-                              >
-                                Más detalles →
-                              </motion.button>
-                            )}
-                          </div>
+                          
                         </div>
                       </div>
                     </div>
@@ -428,8 +532,8 @@ export default function Program() {
             </div>
             <h4 className="font-bold text-slate-900 mb-2">Horarios</h4>
             <p className="text-slate-600 text-sm">
-              Todos los horarios están en hora local de Colombia (GMT-5). Se recomienda llegar 15 minutos antes de cada
-              evento.
+              Todos los horarios están en hora local de Colombia (GMT-5). Se
+              recomienda llegar 15 minutos antes de cada evento.
             </p>
           </div>
 
@@ -439,8 +543,8 @@ export default function Program() {
             </div>
             <h4 className="font-bold text-slate-900 mb-2">Ubicaciones</h4>
             <p className="text-slate-600 text-sm">
-              Todos los eventos se realizan en las instalaciones del Tecnológico de Antioquia. Mapas detallados
-              disponibles en recepción.
+              Todos los eventos se realizan en las instalaciones del Tecnológico
+              de Antioquia. Mapas detallados disponibles en recepción.
             </p>
           </div>
 
@@ -448,9 +552,12 @@ export default function Program() {
             <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
               <Star className="w-6 h-6 text-white" />
             </div>
-            <h4 className="font-bold text-slate-900 mb-2">Eventos Destacados</h4>
+            <h4 className="font-bold text-slate-900 mb-2">
+              Eventos Destacados
+            </h4>
             <p className="text-slate-600 text-sm">
-              Los eventos marcados como destacados requieren registro previo y tienen cupos limitados.
+              Los eventos marcados como destacados requieren registro previo y
+              tienen cupos limitados.
             </p>
           </div>
         </motion.div>
@@ -463,9 +570,12 @@ export default function Program() {
           transition={{ duration: 0.6, delay: 1, ease: "linear" }}
         >
           <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">¿Quieres tener el programa completo?</h3>
+            <h3 className="text-3xl font-bold mb-4">
+              ¿Quieres tener el programa completo?
+            </h3>
             <p className="text-xl mb-8 opacity-90">
-              Descarga el programa detallado con información adicional, mapas y contactos de los ponentes.
+              Descarga el programa detallado con información adicional, mapas y
+              contactos de los ponentes.
             </p>
             <motion.button
               className="bg-white text-green-700 font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-colors inline-flex items-center space-x-2"
@@ -479,5 +589,5 @@ export default function Program() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

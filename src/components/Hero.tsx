@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Users, ArrowRight, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import ImageSlider from "./ImageSlider";
+import AutoImageSlider from "./AutoImageSlider";
 
-export default function Hero() {
+export default function Hero({ setActiveSection }: { setActiveSection: (section: string) => void }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -14,12 +15,16 @@ export default function Hero() {
 
   const sponsors = [
     { name: "Luis Amigo", logo: "/luisamigo_logo.png?height=40&width=120" },
-    {
-      name: "Universidad Veracruzana",
-      logo: "/uvtrans.png?height=40&width=120",
-    },
+    { name: "Universidad Veracruzana", logo: "/uvtrans.png?height=40&width=120"},
     { name: "IUDigital", logo: "/iudigital_logo.png?height=40&width=120" },
     { name: "RIMCI", logo: "/RIMCIlogo.png?height=40&width=120" },
+    { name: "Unimayor", logo : "/unimayor_logo.jpg?height=40&width=120" },
+    { name: "Jaime Isaza Cadavid", logo: "/logo_jic.png?height=40&width=120" },
+    { name: "catamarca", logo: "/logo_unca.png?height=40&width=120" },
+    { name: "Tecnológico de Antioquia", logo: "/logo_tdea.png?height=40&width=120" },
+    { name: "Universidad de Santander", logo: "/logo_usantander.png?height=40&width=120" },
+    { name: "Francisco de Paula Santander", logo: "/Logo-ufps.png?height=40&width=120" },
+    { name: "cenidet", logo: "/cenidet_logo.png?height=40&width=120" },
   ];
 
   useEffect(() => {
@@ -137,6 +142,7 @@ export default function Hero() {
                 className="group bg-green-500 hover:bg-green-400 text-black font-bold py-4 px-8 sm:px-12 rounded-none text-lg sm:text-xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveSection("registro")}
               >
                 <span className="flex items-center space-x-3">
                   <span>REGISTRARSE AHORA</span>
@@ -149,7 +155,7 @@ export default function Hero() {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-16 bg-black border-t border-gray-900">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-8">
@@ -202,7 +208,7 @@ export default function Hero() {
                 label: "Participantes"
               },
               {
-                number: "50+",
+                number: "20+",
                 label: "Ponentes"
               }
             ].map((stat, index) => (
@@ -270,45 +276,14 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="aspect-square bg-black rounded-none overflow-hidden">
-                <img
-                  src="/placeholder.svg?height=600&width=600&text=SEIIIS+2025"
-                  alt="SEIIIS Event"
-                  className="w-full h-full object-cover"
-                />
+              <div className="bg-black rounded-none overflow-hidden">
+                <AutoImageSlider />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-green-500 rounded-none flex items-center justify-center">
+              {/* <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-green-500 rounded-none flex items-center justify-center">
                 <Award className="w-12 h-12 text-black" />
-              </div>
+              </div> */}
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              ¿Listo para hacer
-              <span className="block text-green-400">Historia?</span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-              Únete a la comunidad de investigadores más importante de la región
-            </p>
-
-            <motion.button
-              className="bg-green-500 hover:bg-green-400 text-black font-bold py-4 px-12 rounded-none text-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              REGISTRARSE AHORA
-            </motion.button>
-          </motion.div>
         </div>
       </section>
     </div>

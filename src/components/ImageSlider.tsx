@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import clamp from "lodash/clamp";
 
-const images = [
-  "/momento1.png",
-  "/momento2.png",
-  "/momento3.jpeg",
-];
+const images = ["/momento1.png", "/momento2.png", "/momento3.jpeg", "photos/Transformando el comercio global (20).jpg"];
 
 export default function ImageSlider() {
   const containerRef = useRef<HTMLDivElement>(null);

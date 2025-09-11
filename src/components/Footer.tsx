@@ -55,7 +55,7 @@ export default function Footer() {
           >
             <h4 className="font-bold text-lg mb-6 text-green-400">Enlaces Rápidos</h4>
             <ul className="space-y-3">
-              {["Acerca del Evento", "Programación", "Ponentes", "Registro", "Historia"].map(
+              {["Acerca del Evento", "Historia", "Programación", "Registro"].map(
                 (link, index) => (
                   <li key={index}>
                     <motion.a

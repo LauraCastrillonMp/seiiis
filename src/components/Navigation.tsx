@@ -17,9 +17,9 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
     { id: "acerca", label: "Acerca" },
     { id: "historia", label: "Historia" },
     { id: "programa", label: "Programa" },
-    { id: "ponentes", label: "Ponentes" },
-    { id: "hackathon", label: "HackSEIIIS" },
-    { id: "patrocinadores", label: "Patrocinadores" },
+    // { id: "ponentes", label: "Ponentes" },
+    // { id: "hackathon", label: "HackSEIIIS" },
+    // { id: "patrocinadores", label: "Patrocinadores" },
     { id: "registro", label: "Registro" },
   ]
 
