@@ -211,7 +211,7 @@ export default function Speakers() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ponentes Destacados</h2>
           <div className="w-24 h-1 bg-[#C1FF72] mx-auto mb-8" />
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Conoce a los expertos internacionales que compartirán sus conocimientos en SEIIIS 2024
+            Conoce a los expertos internacionales que compartirán sus conocimientos en SEIIIS 2025
           </p>
         </motion.div>
 

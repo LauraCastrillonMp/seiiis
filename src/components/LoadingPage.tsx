@@ -155,64 +155,9 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
                   transition={{ duration: 0.1, ease: "easeOut" }}
                 />
               </div>
-
-              {/* Progress Percentage */}
-              {/* <motion.div
-                className="absolute -top-8 right-0 text-[#C1FF72] text-xs font-mono"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-              >
-                {Math.round(progress)}%
-              </motion.div> */}
             </div>
           </motion.div>
-
-          {/* Completion Animation */}
-          {/* <AnimatePresence>
-            {isComplete && (
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.2 }}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.div
-                  className="text-center"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <motion.div
-                    className="w-16 h-16 bg-[#C1FF72] rounded-full flex items-center justify-center mx-auto mb-4"
-                    initial={{ rotate: 0 }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  >
-                    <motion.svg
-                      className="w-8 h-8 text-black"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                      <motion.path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </motion.svg>
-                  </motion.div>
-                  <p className="text-[#C1FF72] font-medium">¡Bienvenido a SEIIIS 2024!</p>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence> */}
         </div>
-
         {/* Bottom Info */}
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
@@ -221,18 +166,9 @@ export default function LoadingPage({ onLoadingComplete }: LoadingPageProps) {
           transition={{ duration: 0.8, delay: 2 }}
         >
           <p className="text-gray-500 text-xs">Seminario Internacional de Investigación e Innovación</p>
-          <p className="text-gray-600 text-xs mt-1">Tecnológico de Antioquia • 23-24 Octubre 2024</p>
+          <p className="text-gray-600 text-xs mt-1">Tecnológico de Antioquia • 23-24 Octubre 2025</p>
         </motion.div>
 
-        {/* Loading Spinner (Alternative) */}
-        {/* <motion.div
-          className="absolute top-8 right-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          transition={{ delay: 1 }}
-        >
-          <Loader2 className="w-6 h-6 text-[#C1FF72] animate-spin" />
-        </motion.div> */}
       </motion.div>
     </AnimatePresence>
   )

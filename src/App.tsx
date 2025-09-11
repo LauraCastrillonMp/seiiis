@@ -7,8 +7,6 @@ import LoadingPage from "./components/LoadingPage";
 import About from "./components/About";
 import Timeline from "./components/Timeline";
 import Program from "./components/Program";
-import Speakers from "./components/Speakers";
-import HackSEIIIS from "./components/HackSEIIIS";
 import PhotoGallery from "./components/PhotoGallery";
 import Sponsors from "./components/Sponsors";
 import Registration from "./components/Registration";
@@ -41,12 +39,6 @@ export default function App() {
         return <Timeline />;
       case "programa":
         return <Program />;
-      case "ponentes":
-        return <Speakers />;
-      case "hackathon":
-        return <HackSEIIIS />;
-      case "galeria":
-        return <PhotoGallery />;
       case "patrocinadores":
         return <Sponsors />;
       case "registro":
