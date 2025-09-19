@@ -6,12 +6,9 @@ import {
   MapPin,
   User,
   Calendar,
-  Filter,
-  Search,
-  Download,
-  Star,
   GraduationCap,
   Landmark,
+  Link,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -19,7 +16,9 @@ export default function Program() {
   const [selectedDay, setSelectedDay] = useState("dia1");
   const [selectedFilter, setSelectedFilter] = useState("todos");
   const [searchTerm, setSearchTerm] = useState("");
-  const [expandedFields, setExpandedFields] = useState<Record<string, boolean>>({});
+  const [expandedFields, setExpandedFields] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const schedule = [
     {
@@ -31,32 +30,38 @@ export default function Program() {
           title: "Apertura del Evento",
           speaker:
             "Decano de la Facultad de Ingeniería del Tecnologico de Antioquia",
-          location: "Auditorio - Tecnologico de Antioquia",
+          location: "Auditorio Gilberto Echeverri Mejía - TdeA",
           type: "inaguración",
           country: "Colombia",
+          link: "https://www.youtube.com/@tdeatv"
         },
         {
           time: "8:30 - 9:20",
           title: "Ciencia de datos para la mejora de la vida en las Ciudades",
           speaker: "Hugo Estrada Esquivel - Doctor en Informática",
-          location: "Auditorio - Tecnologico de Antioquia",
+          location: "Auditorio Gilberto Echeverri Mejía - TdeA",
           type: "conferencia 1",
           university: "CENIDET",
           country: "México",
           responsable: "Tecnológico de Antioquia",
+          link: "https://www.youtube.com/@tdeatv"
         },
         {
           time: "9:30 - 10:20",
           title: "Seguridad Defensiva al Límite",
           speaker:
             "Miguel Fabián Robles Angarita - Magister en Administración de Tecnologías de Información, Master en Desarrollo Web",
-          location: "Auditorio - Tecnologico de Antioquia",
+          location: "Auditorio Gilberto Echeverri Mejía - TdeA",
           type: "conferencia 2",
           university:
             "Universidad Francisco de Paula Santander,  Empresa Robles Tecnologia",
           country: "Colombia",
           responsable: "Universidad de Santander",
-          // featured: true,
+          link: "https://www.youtube.com/@tdeatv"
+        },
+        {
+          time: "10:30 - 11:00",
+          title: "Break",
         },
         {
           time: "11:00 - 11:40",
@@ -64,11 +69,16 @@ export default function Program() {
             "Sistema de Inteligencia de Negocios para identificar factores asociados al Intento de Suicidio en el Departamento del Cauca",
           speaker:
             "Fredy Alonso Vidal Alegria - Especialista en Administración de la Información y Bases de Datos, Magister en Educación, Magister en Gestión de Tecnología de la Información",
-          location: "Auditorio - Tecnologico de Antioquia",
+          location: "Auditorio Gilberto Echeverri Mejía - TdeA",
           type: "ponencia 1",
           university: "Institución Universitaria Colegio Mayor del Cauca",
           country: "Colombia",
           responsable: "Institucion Universitaria Colegio Mayor del Cauca",
+          link: "https://www.youtube.com/@tdeatv"
+        },
+        {
+          time: "12:00 - 14:00",
+          title: "Almuerzo"
         },
         {
           time: "14:00",
@@ -131,7 +141,7 @@ export default function Program() {
             "Conectando  las habilidades del pensamiento computacional y del pensamiento matemático através de juegos serios",
           speaker: [
             "Eleonora Palta Velasco - Magister",
-            "Fredy Alonso Vidal Alegría - Magister"
+            // "Fredy Alonso Vidal Alegría - Magister",
           ],
           location: "Auditorio-I.U digital",
           type: "ponencia 2",
@@ -157,29 +167,7 @@ export default function Program() {
       day: "Día 2 - 24 de Octubre",
       events: [
         {
-          time: "8:15 - 9:00",
-          title: "Inteligencia Artificial Vs Ingenieria de Software",
-          speaker:
-            "Agustin Lagunes Dominguez - Doctor en Sistemas y Ambientes Educativos",
-          location:
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
-          type: "conferencia 4",
-          university: "Universidad Veracruzana",
-          country: "México",
-          responsable: "Universidad Veracruzana",
-        },
-        {
-          time: "9:00 - 9:45",
-          title: "Sistemas Expertos de apoyo a la decisión basados en IA",
-          speaker: "Rita Flores Asis - Doctor en Ciencias de la Ingeniería",
-          location: "Auditorio - Tecnologico de Antioquia",
-          type: "conferencia 5",
-          university: "Universidad Veracruzana",
-          country: "México",
-          responsable: "Universidad Veracruzana",
-        },
-        {
-          time: "10:00 - 12:00",
+          time: "8:00 - 12:00",
           title:
             "Muestra de proyectos académicos: innovación y desarrollo desde el aula",
           speaker:
@@ -192,10 +180,33 @@ export default function Program() {
           responsable: "Tecnologico de Antioquia",
         },
         {
+          time: "8:15 - 9:00",
+          title: "Inteligencia Artificial Vs Ingenieria de Software",
+          speaker:
+            "Agustin Lagunes Dominguez - Doctor en Sistemas y Ambientes Educativos",
+          location:
+            "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
+          type: "conferencia 4",
+          university: "Universidad Veracruzana",
+          country: "México",
+          responsable: "Universidad Veracruzana",
+        },
+        {
+          time: "9:00 - 9:45",
+          title: "Sistemas Expertos de apoyo a la decisión basados en IA",
+          speaker: "Rita Flores Asis - Doctor en Ciencias de la Ingeniería",
+          location: "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
+          type: "conferencia 5",
+          university: "Universidad Veracruzana",
+          country: "México",
+          responsable: "Universidad Veracruzana",
+        },        
+        {
           time: "9:45 - 10:30",
           title: "Calculadora de matriz inversa usando IA generativa",
           speaker: "Hernan Ahumada - Doctor en Informatica",
-          location: "Auditorio- Politecnico Jaime Isaza Cadavid- Fernando Gomez Martinez",
+          location:
+            "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
           type: "ponencia 1",
           university: "Universidad de Catamarca",
           country: "Argentina",
@@ -203,14 +214,15 @@ export default function Program() {
         },
         {
           time: "10:30 - 10:50",
-          title: "Fortalecimiento  de competencias  matemáticas para las pruebas Saber Pro Y T&T  de los estudiantes de ingeniería integrando las habilidades  del pensamiento computacional",
+          title:
+            "Fortalecimiento  de competencias  matemáticas para las pruebas Saber Pro Y T&T  de los estudiantes de ingeniería integrando las habilidades  del pensamiento computacional",
           speaker: [
             "Melany Lemes Yotengo - Estudiante de Ingeniería en Software",
             "Karen Liseth Mendez - Estudiante de Ingeniería en Software",
             "Angie Vanessa Argote - Estudiante de Ingenieria Informatica",
-            "Carlos Mario Bucheli - Estudiante de Ingenieria Informatica"
+            "Carlos Mario Bucheli - Estudiante de Ingenieria Informatica",
           ],
-          location: "Auditorio-Jaime Isaza Cadavid- Fernando Gomez Martinez",
+          location: "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
           type: "ponencia 4",
           university: "Institucion Universitaria Colegio Mayor del Cauca",
           country: "Colombia",
@@ -223,29 +235,31 @@ export default function Program() {
             "Hugo Estrada Esquivel - Doctor en Informática",
             "Jorge Guadalupe Mendoza - Doctor en Informática",
             "Nicolas Prieto Medina - Ingeniero Electrónico",
-            "Walter Hugo Arboleda Mazo - Doctor of Philosophy (PhD) in Information Technology"
+            "Walter Hugo Arboleda Mazo - Doctor of Philosophy (PhD) in Information Technology",
           ],
           location: [
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez",
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez"
+            "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid"
           ],
           type: "panel con expertos",
           university: [
             "CENIDET",
             "Instituto Tecnológico de Sonora",
             "Por definir",
-            "Auditorio - Politecnico Jaime Isaza Cadavid - Fernando Gomez Martinez"
+            "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
           ],
           country: ["México", "México", "Por definir", "Colombia"],
           responsable: [
             "CENIDET",
             "Instituto Tecnológico de Sonora",
             "Por definir",
-            "Institución Universitaria Digital de Antioquia"
+            "Institución Universitaria Digital de Antioquia",
           ],
         },
+        {
+          time: "12:00",
+          title: "Cierre",
+          location: "Auditorio Fernando Gómez Martínez - Politécnico Jaime Isaza Cadavid",
+        }
       ],
     },
   ];
@@ -267,8 +281,15 @@ export default function Program() {
     if (t.includes("conferencia")) return "conferencia";
     if (t.includes("taller")) return "taller";
     if (t.includes("panel")) return "panel";
-    if (t.includes("presentacion") || t.includes("ponencia")) return "presentacion";
-    if (t.includes("inag") || t.includes("inaug") || t.includes("apertura") || t.includes("cierre")) return "ceremonia";
+    if (t.includes("presentacion") || t.includes("ponencia"))
+      return "presentacion";
+    if (
+      t.includes("inag") ||
+      t.includes("inaug") ||
+      t.includes("apertura") ||
+      t.includes("cierre")
+    )
+      return "ceremonia";
     if (t.includes("hack")) return "hackathon";
     return null; // unclassified types won't appear in the filter list
   };
@@ -318,7 +339,8 @@ export default function Program() {
 
   const filteredEvents = currentEvents.filter((event) => {
     const baseType = getBaseEventType((event as any).type);
-    const matchesFilter = selectedFilter === "todos" || baseType === selectedFilter;
+    const matchesFilter =
+      selectedFilter === "todos" || baseType === selectedFilter;
     const matchesSearch = event.title
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
@@ -327,7 +349,9 @@ export default function Program() {
 
   // UI helpers
   const renderArray = (items: any[], key: string) => {
-    const safeItems = items.filter((i) => i !== undefined && i !== null).map(String);
+    const safeItems = items
+      .filter((i) => i !== undefined && i !== null)
+      .map(String);
     const maxVisible = 2;
     const expanded = !!expandedFields[key];
     if (safeItems.length <= maxVisible) {
@@ -340,7 +364,9 @@ export default function Program() {
           <button
             type="button"
             className="text-green-700 hover:text-green-800 text-xs underline"
-            onClick={() => setExpandedFields((prev) => ({ ...prev, [key]: false }))}
+            onClick={() =>
+              setExpandedFields((prev) => ({ ...prev, [key]: false }))
+            }
           >
             ver menos
           </button>
@@ -357,7 +383,9 @@ export default function Program() {
           type="button"
           className="text-green-700 hover:text-green-800 text-xs underline"
           title={remaining.join(" · ")}
-          onClick={() => setExpandedFields((prev) => ({ ...prev, [key]: true }))}
+          onClick={() =>
+            setExpandedFields((prev) => ({ ...prev, [key]: true }))
+          }
         >
           y {remainingCount} más
         </button>
@@ -366,7 +394,8 @@ export default function Program() {
   };
 
   const renderField = (value: any, eventIndex: number, fieldId: string) => {
-    if (Array.isArray(value)) return renderArray(value, `${eventIndex}-${fieldId}`);
+    if (Array.isArray(value))
+      return renderArray(value, `${eventIndex}-${fieldId}`);
     if (value === undefined || value === null) return "";
     return String(value);
   };
@@ -417,8 +446,7 @@ export default function Program() {
                 </motion.button>
               ))}
             </div>
-            </div>
-
+          </div>
         </motion.div>
 
         {/* Schedule */}
@@ -445,8 +473,12 @@ export default function Program() {
               <div className="space-y-4">
                 {filteredEvents.length === 0 && (
                   <div className="text-center py-16 bg-white/60 rounded-xl border border-green-100">
-                    <p className="text-slate-700 text-lg mb-2">No hay eventos que coincidan.</p>
-                    <p className="text-slate-500 text-sm">Prueba cambiando el filtro o la búsqueda.</p>
+                    <p className="text-slate-700 text-lg mb-2">
+                      No hay eventos que coincidan.
+                    </p>
+                    <p className="text-slate-500 text-sm">
+                      Prueba cambiando el filtro o la búsqueda.
+                    </p>
                   </div>
                 )}
                 {filteredEvents.map((event, eventIndex) => (
@@ -459,14 +491,15 @@ export default function Program() {
                       delay: eventIndex * 0.07,
                       ease: "easeOut",
                     }} // smoother
-                    className={'relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100'}
+                    className={
+                      "relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100"
+                    }
                     whileHover={{
                       scale: 1.015,
                       y: -1,
                       transition: { duration: 0.08, ease: "easeOut" },
                     }} // instant hover
                   >
-
                     <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                       <div className="flex-shrink-0 lg:w-48">
                         <div className="flex items-center justify-center text-slate-600 font-medium bg-[#C1FF72]/20 px-3 py-2 rounded-lg">
@@ -484,31 +517,71 @@ export default function Program() {
                             {event.speaker && (
                               <div className="flex items-center text-slate-600 text-sm mb-2">
                                 <User className="w-4 h-4 mr-2" />
-                                Autor: {renderField((event as any).speaker, eventIndex, 'speaker')}
+                                Autor:{" "}
+                                {renderField(
+                                  (event as any).speaker,
+                                  eventIndex,
+                                  "speaker"
+                                )}
                                 {event.country && (
                                   <span className="ml-4 text-xs bg-[#C1FF72]/30 text-green-700 px-2 py-1 rounded">
-                                    {renderField((event as any).country, eventIndex, 'country')}
+                                    {renderField(
+                                      (event as any).country,
+                                      eventIndex,
+                                      "country"
+                                    )}
                                   </span>
                                 )}
                               </div>
                             )}
-                            <div className="flex items-center text-slate-600 text-sm mb-2">
-                              <GraduationCap className="w-4 h-4 mr-2" />
-                              Universidad: {renderField((event as any).university, eventIndex, 'university')}
-                            </div>
+                            {event.university && (
+                              <div className="flex items-center text-slate-600 text-sm mb-2">
+                                <GraduationCap className="w-4 h-4 mr-2" />
+                                Universidad:{" "}
+                                {renderField(
+                                  (event as any).university,
+                                  eventIndex,
+                                  "university"
+                                )}
+                              </div>
+                            )}
                             {event.responsable && (
                               <div className="flex items-center text-slate-600 text-sm mb-2">
                                 <Landmark className="w-4 h-4 mr-2" />
-                                Responsable: {renderField((event as any).responsable, eventIndex, 'responsable')}
+                                Responsable:{" "}
+                                {renderField(
+                                  (event as any).responsable,
+                                  eventIndex,
+                                  "responsable"
+                                )}
                               </div>
                             )}
-                            <div className="flex items-center text-slate-600 text-sm mb-2">
+                            {event.location && (
+                              <div className="flex items-center text-slate-600 text-sm mb-2">
                               <MapPin className="w-4 h-4 mr-2" />
-                              Lugar: {renderField((event as any).location, eventIndex, 'location')}
+                              Lugar:{" "}
+                              {renderField(
+                                (event as any).location,
+                                eventIndex,
+                                "location"
+                              )}
                             </div>
+                            )}
+                            {event.link && (
+                              <div className="flex items-center text-slate-600 text-sm mb-2">
+                                <Link className="w-4 h-4 mr-2" />
+                                Enlace: {" "}
+                                <a
+                                  href={event.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[#86be3d] hover:underline"
+                                >
+                                  {event.link}
+                                </a>
+                              </div>
+                            )}
                           </div>
-
-                          
                         </div>
                       </div>
                     </div>

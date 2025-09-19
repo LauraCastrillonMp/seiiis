@@ -1,64 +1,94 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Target, Users, Award, Lightbulb, BookOpen, Globe, Zap, Heart, Star, TrendingUp } from "lucide-react"
-import { useState } from "react"
-import AutoImageSlider from "./AutoImageSlider"
+import { motion } from "framer-motion";
+import {
+  Target,
+  Users,
+  Award,
+  Lightbulb,
+  BookOpen,
+  Globe,
+  Zap,
+  Heart,
+  Star,
+  TrendingUp,
+} from "lucide-react";
+import { useState } from "react";
+import AutoImageSlider from "./AutoImageSlider";
 
 export default function About() {
-  const [activeTab, setActiveTab] = useState("objetivos")
+  const [activeTab, setActiveTab] = useState("objetivos");
 
   const features = [
     {
       icon: Target,
       title: "Investigación de Vanguardia",
-      description: "Presentación de los últimos avances en investigación científica y tecnológica.",
+      description:
+        "Presentación de los últimos avances en investigación científica y tecnológica.",
     },
     {
       icon: Users,
       title: "Networking Internacional",
-      description: "Conecta con investigadores, académicos y profesionales de todo el mundo.",
+      description:
+        "Conecta con investigadores, académicos y profesionales de todo el mundo.",
     },
     {
       icon: Award,
       title: "Reconocimiento Académico",
-      description: "Certificaciones y reconocimientos por participación en el evento.",
+      description:
+        "Certificaciones y reconocimientos por participación en el evento.",
     },
     {
       icon: Lightbulb,
       title: "Innovación Aplicada",
       description: "Soluciones prácticas e innovadoras para desafíos actuales.",
     },
-  ]
+  ];
 
   const objectives = [
     {
       title: "Fomentar la Investigación",
-      description: "Promover la investigación científica y tecnológica de alta calidad en instituciones educativas.",
+      description:
+        "Promover la investigación científica y tecnológica de alta calidad en instituciones educativas.",
       icon: BookOpen,
     },
     {
       title: "Intercambio de Conocimiento",
-      description: "Facilitar el intercambio de experiencias y conocimientos entre investigadores internacionales.",
+      description:
+        "Facilitar el intercambio de experiencias y conocimientos entre investigadores internacionales.",
       icon: Globe,
     },
     {
       title: "Innovación Tecnológica",
-      description: "Impulsar el desarrollo de tecnologías innovadoras que contribuyan al progreso social.",
+      description:
+        "Impulsar el desarrollo de tecnologías innovadoras que contribuyan al progreso social.",
       icon: Zap,
     },
     {
       title: "Formación Académica",
-      description: "Fortalecer la formación de nuevos investigadores y profesionales en áreas estratégicas.",
+      description:
+        "Fortalecer la formación de nuevos investigadores y profesionales en áreas estratégicas.",
       icon: Users,
     },
-  ]
+  ];
 
   const impact = [
-    { number: "2,500+", label: "Investigadores Participantes", description: "A lo largo de 10 ediciones" },
-    { number: "150+", label: "Proyectos Presentados", description: "Investigaciones de alto impacto" },
-    { number: "50+", label: "Instituciones Aliadas", description: "Red de colaboración" },
-  ]
+    {
+      number: "2,500+",
+      label: "Investigadores Participantes",
+      description: "A lo largo de 10 ediciones",
+    },
+    {
+      number: "150+",
+      label: "Proyectos Presentados",
+      description: "Investigaciones de alto impacto",
+    },
+    {
+      number: "50+",
+      label: "Instituciones Aliadas",
+      description: "Red de colaboración",
+    },
+  ];
 
   const testimonials = [
     {
@@ -79,13 +109,13 @@ export default function About() {
       text: "SEIIIS me ha permitido conectar con investigadores y encontrar oportunidades.",
       rating: 5,
     },
-  ]
+  ];
 
   const tabs = [
     { id: "objetivos", label: "Objetivos", icon: Target },
     { id: "impacto", label: "Impacto", icon: TrendingUp },
     { id: "testimonios", label: "Testimonios", icon: Heart },
-  ]
+  ];
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
@@ -96,11 +126,14 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Acerca del Evento</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">
+            Acerca del Evento
+          </h2>
           <div className="w-16 sm:w-24 h-1 bg-[#C1FF72] mx-auto mb-6 sm:mb-8" />
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            El Seminario Internacional de Investigación e Innovación SEIIIS es el evento académico más importante del
-            año, reuniendo a los mejores investigadores y profesionales del sector.
+            El Seminario Internacional de Investigación e Innovación SEIIIS es
+            un evento académico muy importante que se organiza cada año,
+            reuniendo a los mejores investigadores y profesionales del sector.
           </p>
         </motion.div>
 
@@ -115,13 +148,24 @@ export default function About() {
             </h3>
             <div className="space-y-3 sm:space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
-                La Facultad de Ingeniería del tecnológico de Antioquia, con el apoyo de otras IES, organiza el evento académico SEIIIS, con el propósito de generar un espacio para la disertación y socialización de tópicos como la Inteligencia Artificial, la Inteligencia de Negocios, el Big Data, la Ciberseguridad, la Seguridad de la información, la ingeniería de Software, entre otros
+                La Facultad de Ingeniería del tecnológico de Antioquia, con el
+                apoyo de otras IES, organiza el evento académico SEIIIS, con el
+                propósito de generar un espacio para la disertación y
+                socialización de tópicos como la Inteligencia Artificial, la
+                Inteligencia de Negocios, el Big Data, la Ciberseguridad, la
+                Seguridad de la información, la ingeniería de Software, entre
+                otros
               </p>
               <p>
-                En esta edición contaremos con conferencias, ponencias, talleres, y panel con expertos. Estas actividades serán servidas por expertos académicos de las universidades, y empresas que participan en la organización del evento. 
+                En esta edición contaremos con conferencias, ponencias,
+                talleres, y panel con expertos. Estas actividades serán servidas
+                por expertos académicos de las universidades, y empresas que
+                participan en la organización del evento.
               </p>
               <p>
-                Serán dos días de actividades que enriquecerán de conocimiento, experiencias, y buenas prácticas a todas las comunidades académicas que nos acompañarán de forma presencial y virtual. 
+                Serán dos días de actividades que enriquecerán de conocimiento,
+                experiencias, y buenas prácticas a todas las comunidades
+                académicas que nos acompañarán de forma presencial y virtual.
               </p>
             </div>
 
@@ -162,7 +206,11 @@ export default function About() {
               className="text-center p-4 sm:p-6 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.8 + index * 0.1, ease: "linear" }}
+              transition={{
+                duration: 0.4,
+                delay: 0.8 + index * 0.1,
+                ease: "linear",
+              }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <motion.div
@@ -172,8 +220,12 @@ export default function About() {
               >
                 <feature.icon className="w-6 sm:w-8 h-6 sm:h-8 text-slate-900" />
               </motion.div>
-              <h4 className="text-sm sm:text-lg font-bold text-slate-900 mb-2">{feature.title}</h4>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{feature.description}</p>
+              <h4 className="text-sm sm:text-lg font-bold text-slate-900 mb-2">
+                {feature.title}
+              </h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -217,15 +269,23 @@ export default function About() {
                     className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-white rounded-xl shadow-sm"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1, ease: "linear" }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1,
+                      ease: "linear",
+                    }}
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#C1FF72] rounded-lg flex items-center justify-center flex-shrink-0">
                       <objective.icon className="w-5 sm:w-6 h-5 sm:h-6 text-slate-900" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-2 text-sm sm:text-base">{objective.title}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{objective.description}</p>
+                      <h4 className="font-bold text-slate-900 mb-2 text-sm sm:text-base">
+                        {objective.title}
+                      </h4>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {objective.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -240,12 +300,22 @@ export default function About() {
                     className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1, ease: "linear" }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1,
+                      ease: "linear",
+                    }}
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-2xl sm:text-4xl font-bold text-[#C1FF72] mb-2">{item.number}</div>
-                    <div className="font-semibold text-slate-900 mb-1 text-xs sm:text-sm">{item.label}</div>
-                    <div className="text-xs text-slate-600">{item.description}</div>
+                    <div className="text-2xl sm:text-4xl font-bold text-[#C1FF72] mb-2">
+                      {item.number}
+                    </div>
+                    <div className="font-semibold text-slate-900 mb-1 text-xs sm:text-sm">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-slate-600">
+                      {item.description}
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -259,18 +329,31 @@ export default function About() {
                     className="p-4 sm:p-6 bg-white rounded-xl shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1, ease: "linear" }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1,
+                      ease: "linear",
+                    }}
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="flex items-center mb-3 sm:mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 text-[#C1FF72] fill-current" />
+                        <Star
+                          key={i}
+                          className="w-4 sm:w-5 h-4 sm:h-5 text-[#C1FF72] fill-current"
+                        />
                       ))}
                     </div>
-                    <p className="text-slate-600 mb-3 sm:mb-4 italic text-xs sm:text-sm">"{testimonial.text}"</p>
+                    <p className="text-slate-600 mb-3 sm:mb-4 italic text-xs sm:text-sm">
+                      "{testimonial.text}"
+                    </p>
                     <div>
-                      <div className="font-bold text-slate-900 text-sm sm:text-base">{testimonial.name}</div>
-                      <div className="text-xs sm:text-sm text-slate-500">{testimonial.role}</div>
+                      <div className="font-bold text-slate-900 text-sm sm:text-base">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-xs sm:text-sm text-slate-500">
+                        {testimonial.role}
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -280,5 +363,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

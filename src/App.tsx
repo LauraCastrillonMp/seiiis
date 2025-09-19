@@ -7,7 +7,6 @@ import LoadingPage from "./components/LoadingPage";
 import About from "./components/About";
 import Timeline from "./components/Timeline";
 import Program from "./components/Program";
-import PhotoGallery from "./components/PhotoGallery";
 import Sponsors from "./components/Sponsors";
 import Registration from "./components/Registration";
 
