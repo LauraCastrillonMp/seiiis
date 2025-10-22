@@ -9,6 +9,7 @@ import {
   GraduationCap,
   Landmark,
   Link,
+  Shapes,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -577,6 +578,11 @@ export default function Program() {
                     </div>
                   </div>
                 )}
+                <h4 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                      <Shapes className="w-5 h-5 mr-2" />
+                      Eventos Presenciales
+                      
+                    </h4>
                  {filteredEvents.map((event, eventIndex) => (
                    <motion.div
                      key={eventIndex}
