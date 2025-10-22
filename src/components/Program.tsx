@@ -264,6 +264,36 @@ export default function Program() {
     },
   ];
 
+  // Eventos externos / transmisiones que se muestran al inicio de la lista
+  const externalEventsMap: Record<string, any[]> = {
+    dia1: [
+      {
+        time: "8:00 - 12:00",
+        title: "Jornada: Tecnológico de Antioquia (Transmisión)",
+        location: "Tecnológico de Antioquia",
+        type: "transmision",
+        link: "https://youtube.com/live/xlw07enQabQ?feature=share",
+      },
+      {
+        time: "18:00 - 20:00",
+        title: "Jornada: I.U. Digital (Transmisión)",
+        location: "I.U. Digital",
+        type: "transmision",
+        link: "https://www.youtube.com/live/_ctyNCkdoAA?si=bSdQ75Z1WMMMEgHR",
+      },
+    ],
+    dia2: [
+      {
+        time: "8:00 - 12:00",
+        title:
+          "Jornada: Politécnico Colombiano Jaime Isaza Cadavid (Transmisión)",
+        location: "Politécnico Jaime Isaza Cadavid",
+        type: "transmision",
+        link: "https://youtube.com/live/xuCJITPHMcE?feature=share",
+      },
+    ],
+  };
+
   const eventTypes = [
     { id: "todos", label: "Todos los Eventos", count: 0 },
     { id: "conferencia", label: "Conferencias", count: 0 },
@@ -311,6 +341,7 @@ export default function Program() {
 
   const currentSchedule = schedule.find((s) => s.id === selectedDay);
   const currentEvents = currentSchedule?.events || [];
+  const externalForDay = externalEventsMap[selectedDay] || [];
 
   // Compute available filters with counts for the selected day
   const typeCounts = currentEvents.reduce((acc: Record<string, number>, ev) => {
@@ -481,112 +512,177 @@ export default function Program() {
                     </p>
                   </div>
                 )}
-                {filteredEvents.map((event, eventIndex) => (
-                  <motion.div
-                    key={eventIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: 0.35,
-                      delay: eventIndex * 0.07,
-                      ease: "easeOut",
-                    }} // smoother
-                    className={
-                      "relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100"
-                    }
-                    whileHover={{
-                      scale: 1.015,
-                      y: -1,
-                      transition: { duration: 0.08, ease: "easeOut" },
-                    }} // instant hover
-                  >
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-                      <div className="flex-shrink-0 lg:w-48">
-                        <div className="flex items-center justify-center text-slate-600 font-medium bg-[#C1FF72]/20 px-3 py-2 rounded-lg">
-                          <Clock className="w-4 h-4 mr-2 text-green-600" />
-                          {event.time}
-                        </div>
-                      </div>
+                {/* Render external/transmission events first */}
+                {externalForDay.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                      <Link className="w-5 h-5 mr-2" />
+                      Transmisiones / Jornadas en línea
+                      <span className="ml-3 text-xs bg-[#C1FF72]/20 text-green-700 px-2 py-1 rounded-full">
+                        En vivo
+                      </span>
+                    </h4>
 
-                      <div className="flex-grow">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                          <div className="flex-grow">
-                            <h4 className="font-bold text-slate-900 mb-2 text-lg group-hover:text-[#86be3d] transition-colors">
-                              {event.title}
-                            </h4>
-                            {event.speaker && (
-                              <div className="flex items-center text-slate-600 text-sm mb-2">
-                                <User className="w-4 h-4 mr-2" />
-                                Autor:{" "}
-                                {renderField(
-                                  (event as any).speaker,
-                                  eventIndex,
-                                  "speaker"
-                                )}
-                                {event.country && (
-                                  <span className="ml-4 text-xs bg-[#C1FF72]/30 text-green-700 px-2 py-1 rounded">
-                                    {renderField(
-                                      (event as any).country,
-                                      eventIndex,
-                                      "country"
-                                    )}
-                                  </span>
-                                )}
+                    <div className="space-y-3">
+                      {externalForDay.map((event, extIndex) => (
+                        <motion.div
+                          key={`external-${extIndex}`}
+                          initial={{ opacity: 0, x: -12 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 0.32,
+                            delay: extIndex * 0.05,
+                            ease: "easeOut",
+                          }}
+                          className="relative p-4 rounded-lg bg-green-50 border border-dashed border-green-100"
+                        >
+                          <div className="flex flex-col lg:flex-row lg:items-center gap-3">
+                            <div className="flex-shrink-0 lg:w-44">
+                              <div className="flex items-center justify-center text-slate-600 font-medium bg-[#C1FF72]/20 px-3 py-2 rounded-lg">
+                                <Clock className="w-4 h-4 mr-2 text-green-600" />
+                                {event.time}
                               </div>
-                            )}
-                            {event.university && (
-                              <div className="flex items-center text-slate-600 text-sm mb-2">
-                                <GraduationCap className="w-4 h-4 mr-2" />
-                                Universidad:{" "}
-                                {renderField(
-                                  (event as any).university,
-                                  eventIndex,
-                                  "university"
-                                )}
-                              </div>
-                            )}
-                            {event.responsable && (
-                              <div className="flex items-center text-slate-600 text-sm mb-2">
-                                <Landmark className="w-4 h-4 mr-2" />
-                                Responsable:{" "}
-                                {renderField(
-                                  (event as any).responsable,
-                                  eventIndex,
-                                  "responsable"
-                                )}
-                              </div>
-                            )}
-                            {event.location && (
-                              <div className="flex items-center text-slate-600 text-sm mb-2">
-                              <MapPin className="w-4 h-4 mr-2" />
-                              Lugar:{" "}
-                              {renderField(
-                                (event as any).location,
-                                eventIndex,
-                                "location"
-                              )}
                             </div>
-                            )}
-                            {event.link && (
-                              <div className="flex items-center text-slate-600 text-sm mb-2">
-                                <Link className="w-4 h-4 mr-2" />
-                                Enlace: {" "}
-                                <a
-                                  href={event.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[#86be3d] hover:underline"
-                                >
-                                  {event.link}
-                                </a>
+
+                            <div className="flex-grow">
+                              <div className="flex items-start justify-between">
+                                <div>
+                                  <h5 className="font-semibold text-slate-900">
+                                    {event.title}
+                                  </h5>
+                                  {event.location && (
+                                    <div className="flex items-center text-slate-600 text-sm mt-1">
+                                      <MapPin className="w-4 h-4 mr-2" />
+                                      {renderField(event.location, extIndex, "location")}
+                                    </div>
+                                  )}
+                                </div>
+                                {event.link && (
+                                  <div className="ml-4 shrink-0">
+                                    <a
+                                      href={event.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-block text-sm text-white bg-green-600 hover:bg-green-700 px-3 py-2 rounded-md"
+                                    >
+                                      Ver transmisión
+                                    </a>
+                                  </div>
+                                )}
                               </div>
-                            )}
+                            </div>
                           </div>
-                        </div>
-                      </div>
+                        </motion.div>
+                      ))}
                     </div>
-                  </motion.div>
-                ))}
+                  </div>
+                )}
+                 {filteredEvents.map((event, eventIndex) => (
+                   <motion.div
+                     key={eventIndex}
+                     initial={{ opacity: 0, x: -20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     transition={{
+                       duration: 0.35,
+                       delay: eventIndex * 0.07,
+                       ease: "easeOut",
+                     }} // smoother
+                     className={
+                       "relative p-6 rounded-xl bg-white/60 hover:bg-white/80 transition-all cursor-pointer group border border-green-100"
+                     }
+                     whileHover={{
+                       scale: 1.015,
+                       y: -1,
+                       transition: { duration: 0.08, ease: "easeOut" },
+                     }} // instant hover
+                   >
+                     <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+                       <div className="flex-shrink-0 lg:w-48">
+                         <div className="flex items-center justify-center text-slate-600 font-medium bg-[#C1FF72]/20 px-3 py-2 rounded-lg">
+                           <Clock className="w-4 h-4 mr-2 text-green-600" />
+                           {event.time}
+                         </div>
+                       </div>
+
+                       <div className="flex-grow">
+                         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                           <div className="flex-grow">
+                             <h4 className="font-bold text-slate-900 mb-2 text-lg group-hover:text-[#86be3d] transition-colors">
+                               {event.title}
+                             </h4>
+                             {event.speaker && (
+                               <div className="flex items-center text-slate-600 text-sm mb-2">
+                                 <User className="w-4 h-4 mr-2" />
+                                 Autor:{" "}
+                                 {renderField(
+                                   (event as any).speaker,
+                                   eventIndex,
+                                   "speaker"
+                                 )}
+                                 {event.country && (
+                                   <span className="ml-4 text-xs bg-[#C1FF72]/30 text-green-700 px-2 py-1 rounded">
+                                     {renderField(
+                                       (event as any).country,
+                                       eventIndex,
+                                       "country"
+                                     )}
+                                   </span>
+                                 )}
+                               </div>
+                             )}
+                             {event.university && (
+                               <div className="flex items-center text-slate-600 text-sm mb-2">
+                                 <GraduationCap className="w-4 h-4 mr-2" />
+                                 Universidad:{" "}
+                                 {renderField(
+                                   (event as any).university,
+                                   eventIndex,
+                                   "university"
+                                 )}
+                               </div>
+                             )}
+                             {event.responsable && (
+                               <div className="flex items-center text-slate-600 text-sm mb-2">
+                                 <Landmark className="w-4 h-4 mr-2" />
+                                 Responsable:{" "}
+                                 {renderField(
+                                   (event as any).responsable,
+                                   eventIndex,
+                                   "responsable"
+                                 )}
+                               </div>
+                             )}
+                             {event.location && (
+                               <div className="flex items-center text-slate-600 text-sm mb-2">
+                               <MapPin className="w-4 h-4 mr-2" />
+                               Lugar:{" "}
+                               {renderField(
+                                 (event as any).location,
+                                 eventIndex,
+                                 "location"
+                               )}
+                             </div>
+                             )}
+                             {event.link && (
+                               <div className="flex items-center text-slate-600 text-sm mb-2">
+                                 <Link className="w-4 h-4 mr-2" />
+                                 Enlace: {" "}
+                                 <a
+                                   href={event.link}
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   className="text-[#86be3d] hover:underline"
+                                 >
+                                   {event.link}
+                                 </a>
+                               </div>
+                             )}
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </motion.div>
+                 ))}
               </div>
             </div>
           </motion.div>
